@@ -1,5 +1,7 @@
  - Algorithms
  - Data Structures
+BIT.cpp
+BIT_Range.cpp
  - Geometry
  - Graph Theory
 Scc.cpp

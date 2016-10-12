@@ -7,6 +7,7 @@ Treap.cpp
 ConvexHull.cpp
  - Graph Theory
 SCC.cpp
+Biconnected_Components.cpp
 Dinic's.cpp
 LCA.cpp
 HLD.cpp

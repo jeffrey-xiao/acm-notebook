@@ -4,7 +4,7 @@
 \BOOKMARK [2][-]{subsection.2.2}{BIT\137Range.cpp}{section.2}% 4
 \BOOKMARK [2][-]{subsection.2.3}{Treap.cpp}{section.2}% 5
 \BOOKMARK [1][-]{section.3}{Geometry}{}% 6
-\BOOKMARK [2][-]{subsection.3.1}{ConvexHull.cpp}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.1}{Convex\137Hull.cpp}{section.3}% 7
 \BOOKMARK [1][-]{section.4}{Graph Theory}{}% 8
 \BOOKMARK [2][-]{subsection.4.1}{SCC.cpp}{section.4}% 9
 \BOOKMARK [2][-]{subsection.4.2}{Biconnected\137Components.cpp}{section.4}% 10
@@ -14,4 +14,4 @@
 \BOOKMARK [1][-]{section.5}{Mathematics}{}% 14
 \BOOKMARK [2][-]{subsection.5.1}{Euclid.cpp}{section.5}% 15
 \BOOKMARK [2][-]{subsection.5.2}{Combinatorics.cpp}{section.5}% 16
-\BOOKMARK [2][-]{subsection.5.3}{GaussJordon.cpp}{section.5}% 17
+\BOOKMARK [2][-]{subsection.5.3}{Gauss\137Jordon.cpp}{section.5}% 17

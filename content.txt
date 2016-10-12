@@ -1,17 +1,21 @@
  - Algorithms
+
  - Data Structures
 BIT.cpp
 BIT_Range.cpp
 Treap.cpp
+
  - Geometry
-ConvexHull.cpp
+Convex_Hull.cpp
+
  - Graph Theory
 SCC.cpp
 Biconnected_Components.cpp
 Dinic's.cpp
 LCA.cpp
 HLD.cpp
+
  - Mathematics
 Euclid.cpp
 Combinatorics.cpp
-GaussJordon.cpp
+Gauss_Jordon.cpp

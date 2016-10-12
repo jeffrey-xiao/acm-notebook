@@ -2,12 +2,15 @@
  - Data Structures
 BIT.cpp
 BIT_Range.cpp
+Treap.cpp
  - Geometry
+ConvexHull.cpp
  - Graph Theory
-Scc.cpp
+SCC.cpp
 Dinic's.cpp
 LCA.cpp
 HLD.cpp
  - Mathematics
 Euclid.cpp
 Combinatorics.cpp
+GaussJordon.cpp

@@ -10,7 +10,7 @@
 \contentsline {subsection}{\numberline {4.1}SCC.cpp}{3}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}Biconnected\_Components.cpp}{3}{subsection.4.2}
 \contentsline {subsection}{\numberline {4.3}Dinic's.cpp}{3}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}StoerWagner.cpp}{4}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.4}Stoer\_Wagner.cpp}{4}{subsection.4.4}
 \contentsline {subsection}{\numberline {4.5}LCA.cpp}{4}{subsection.4.5}
 \contentsline {subsection}{\numberline {4.6}HLD.cpp}{5}{subsection.4.6}
 \contentsline {section}{\numberline {5}Mathematics}{5}{section.5}

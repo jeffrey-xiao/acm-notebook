@@ -13,7 +13,7 @@ Convex_Hull.cpp
 SCC.cpp
 Biconnected_Components.cpp
 Dinic's.cpp
-StoerWagner.cpp
+Stoer_Wagner.cpp
 LCA.cpp
 HLD.cpp
 

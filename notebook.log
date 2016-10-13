@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.10.2)  13 OCT 2016 16:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.10.2)  13 OCT 2016 16:47
 entering extended mode
 **C:/Users/Jeffrey/workspace/GitHub/ACM-Notebook/notebook.tex
 (C:/Users/Jeffrey/workspace/GitHub/ACM-Notebook/notebook.tex
@@ -455,7 +455,7 @@ LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <7> not available
 
 ]) (code/Treap.cpp) (code/Convex_Hull.cpp [2])
 (code/SCC.cpp) (code/Biconnected_Components.cpp) (code/Dinic's.cpp [3])
-(code/StoerWagner.cpp) (code/LCA.cpp) [4] (code/HLD.cpp) (code/Euclid.cpp
+(code/Stoer_Wagner.cpp) (code/LCA.cpp) [4] (code/HLD.cpp) (code/Euclid.cpp
 [5]) (code/Combinatorics.cpp) (code/Gauss_Jordon.cpp [6]) (code/Manacher's.cpp)
 (code/KMP.cpp) (code/Rabin_Karp.cpp [7]) (code/Z_Algorithm.cpp)
 (code/Suffix_Array.cpp)) [8]
@@ -465,12 +465,12 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 89.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 89.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 89.
 Package rerunfilecheck Info: File `notebook.out' has not changed.
-(rerunfilecheck)             Checksum: 777D0404CC73120C57128ED12CD24CA8;1497.
+(rerunfilecheck)             Checksum: 3DACCBA57CA804BF1C774ABB6546A252;1501.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 89.
  ) 
 Here is how much of TeX's memory you used:
  9494 strings out of 493673
- 136127 string characters out of 3143144
+ 136130 string characters out of 3143144
  1038629 words of memory out of 3000000
  11672 multiletter control sequences out of 15000+200000
  8231 words of font info for 30 fonts, out of 3000000 for 9000
@@ -482,7 +482,7 @@ m Files (x86)/MiKTeX/fonts/type1/public/amsfonts/cm/cmitt10.pfb><C:/Program Fil
 es (x86)/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86
 )/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/MiKTe
 X/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on notebook.pdf (8 pages, 273823 bytes).
+Output written on notebook.pdf (8 pages, 273916 bytes).
 PDF statistics:
  1414 PDF objects out of 1440 (max. 8388607)
  1047 named destinations out of 1200 (max. 500000)

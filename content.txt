@@ -19,3 +19,9 @@ HLD.cpp
 Euclid.cpp
 Combinatorics.cpp
 Gauss_Jordon.cpp
+
+ - String
+Manacher's.cpp
+KMP.cpp
+Z_Algorithm.cpp
+Suffix_Array.cpp

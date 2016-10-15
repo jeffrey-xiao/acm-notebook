@@ -10,9 +10,12 @@ Treap.cpp
 Convex_Hull.cpp
 
  - Graph Theory
+Eulerian.cpp
 SCC.cpp
 Biconnected_Components.cpp
-Dinic's.cpp
+MaxFlow.cpp
+MaxFlowMinCost.cpp
+MaxMatching.cpp
 Stoer_Wagner.cpp
 LCA.cpp
 HLD.cpp

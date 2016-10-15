@@ -31,3 +31,4 @@ KMP.cpp
 Rabin_Karp.cpp
 Z_Algorithm.cpp
 Suffix_Array.cpp
+Suffix_Tree.cpp

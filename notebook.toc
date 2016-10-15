@@ -26,3 +26,4 @@
 \contentsline {subsection}{\numberline {6.3}Rabin\_Karp.cpp}{9}{subsection.6.3}
 \contentsline {subsection}{\numberline {6.4}Z\_Algorithm.cpp}{10}{subsection.6.4}
 \contentsline {subsection}{\numberline {6.5}Suffix\_Array.cpp}{10}{subsection.6.5}
+\contentsline {subsection}{\numberline {6.6}Suffix\_Tree.cpp}{10}{subsection.6.6}

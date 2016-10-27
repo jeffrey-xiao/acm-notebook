@@ -1,6 +1,11 @@
  - Algorithms
 Mo.cpp
 
+ - Dynamic Programming
+Convex_Hull_Trick.cpp
+Divide_And_Conquer.cpp
+Knuth.cpp
+
  - Data Structures
 BIT.cpp
 BIT_Range.cpp

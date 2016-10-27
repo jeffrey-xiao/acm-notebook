@@ -99,11 +99,11 @@ struct SuffixTree {
         }
     }
     void printTree (Node* curr) {
-		for (int i = 0; i < RADIX; i++) {
-			if (curr->child[i] != nullptr) {
+        for (int i = 0; i < RADIX; i++) {
+            if (curr->child[i] != nullptr) {
                 cout << input.substr(curr->child[i]->s, curr->child[i]->e == END ? input.size() - curr->child[i]->s: curr->child[i]->e - curr->child[i]->s) << endl;
-				printTree(curr->child[i]);
-			}
-		}
-	}
+                printTree(curr->child[i]);
+            }
+        }
+    }
 };

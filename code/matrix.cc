@@ -1,12 +1,13 @@
-/* From Alex Li
-   Basic matrix class with support for arithmetic operations
-   as well as matrix multiplication and exponentiation. You
-   can access/modify indices using m(r, c) or m[r][c]. You
-   can also treat it as a 2d vector, since the cast operator
-   to a reference to its internal 2d vector is defined. This
-   makes it compatible with the 2d vector functions such as
-   det() and lu_decompose() in later sections.
-   */
+/*
+ * From Alex Li
+ * Basic matrix class with support for arithmetic operations
+ * as well as matrix multiplication and exponentiation. You
+ * can access/modify indices using m(r, c) or m[r][c]. You
+ * can also treat it as a 2d vector, since the cast operator
+ * to a reference to its internal 2d vector is defined. This
+ * makes it compatible with the 2d vector functions such as
+ * det() and lu_decompose() in later sections.
+ */
 
 #include <ostream>
 #include <vector>

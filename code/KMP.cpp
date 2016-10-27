@@ -16,7 +16,7 @@ struct KMP {
                 j++;
             lcp[i] = j;
         }
-        for (int i = 0; i < pattern.size(); i++)
+        for (int i = 0; i < (int)pattern.size(); i++)
             printf("%d\n", lcp[i]);
     }
 

@@ -33,6 +33,7 @@ Miller_Rabin.cpp
 Euclid.cpp
 Combinatorics.cpp
 Gauss_Jordon.cpp
+Matrix.cc
 
  - String
 Manacher's.cpp

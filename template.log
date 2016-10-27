@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.10.2)  27 OCT 2016 01:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.10.2)  27 OCT 2016 01:10
 entering extended mode
 **C:/Users/Jeffrey/workspace/GitHub/ACM-Notebook/template.tex
 (C:/Users/Jeffrey/workspace/GitHub/ACM-Notebook/template.tex
@@ -470,26 +470,26 @@ LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <7> not available
 (code/Max_Flow_Min_Cost.cpp [6]) (code/Max_Matching.cpp [7]) (code/Min_Cut.cpp)
 (code/LCA.cpp) (code/HLD.cpp [8]) (code/General.cpp) (code/Miller_Rabin.cpp
 [9]) (code/Euclid.cpp) (code/Combinatorics.cpp [10]) (code/Gauss_Jordon.cpp)
-(code/Manacher's.cpp [11]) (code/KMP.cpp) (code/Rabin_Karp.cpp)
-(code/Z_Algorithm.cpp) (code/Suffix_Array.cpp [12]) (code/Suffix_Tree.cpp))
-[13]
+(code/Matrix.cc [11]) (code/Manacher's.cpp [12]) (code/KMP.cpp)
+(code/Rabin_Karp.cpp) (code/Z_Algorithm.cpp) (code/Suffix_Array.cpp [13])
+(code/Suffix_Tree.cpp [14])) [15]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 88.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 88.
  (template.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 88.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 88.
 Package rerunfilecheck Info: File `template.out' has not changed.
-(rerunfilecheck)             Checksum: 5B41CF7AEBEDBB1D894B6990532FE0BE;2335.
+(rerunfilecheck)             Checksum: 398E7540ED5D901500AB7E436ACF6E32;2395.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 88.
  ) 
 Here is how much of TeX's memory you used:
- 10568 strings out of 493673
- 152387 string characters out of 3143144
- 1216403 words of memory out of 3000000
- 11915 multiletter control sequences out of 15000+200000
+ 10778 strings out of 493673
+ 155522 string characters out of 3143144
+ 750461 words of memory out of 3000000
+ 11953 multiletter control sequences out of 15000+200000
  9895 words of font info for 35 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 40i,12n,68p,315b,2002s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 40i,12n,68p,317b,2006s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX/fonts/enc/dvips/fontname/8r.enc}<C:/Program Fi
 les (x86)/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files (x
 86)/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/Mi
@@ -498,9 +498,9 @@ nts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/MiKTeX/fonts/typ
 e1/public/amsfonts/cm/cmsl10.pfb><C:/Program Files (x86)/MiKTeX/fonts/type1/urw
 /courier/ucrb8a.pfb><C:/Program Files (x86)/MiKTeX/fonts/type1/urw/courier/ucrr
 8a.pfb><C:/Program Files (x86)/MiKTeX/fonts/type1/urw/courier/ucrro8a.pfb>
-Output written on template.pdf (13 pages, 428406 bytes).
+Output written on template.pdf (15 pages, 456942 bytes).
 PDF statistics:
- 2431 PDF objects out of 2487 (max. 8388607)
- 1833 named destinations out of 2073 (max. 500000)
- 297 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2643 PDF objects out of 2984 (max. 8388607)
+ 2001 named destinations out of 2073 (max. 500000)
+ 305 words of extra memory for PDF output out of 10000 (max. 10000000)
 

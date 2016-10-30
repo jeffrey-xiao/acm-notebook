@@ -1,44 +1,44 @@
  - Algorithms
-Mo.cpp
+algorithms/Mo.cpp
 
  - Dynamic Programming
-Convex_Hull_Trick.cpp
-Divide_And_Conquer.cpp
-Knuth.cpp
+dp/Convex_Hull_Trick.cpp
+dp/Divide_And_Conquer.cpp
+dp/Knuth.cpp
 
  - Data Structures
-BIT.cpp
-BIT_Range.cpp
-Treap.cpp
-Persistent_Segment_Tree.cpp
+datastructures/BIT.cpp
+datastructures/BIT_Range.cpp
+datastructures/Treap.cpp
+datastructures/Persistent_Segment_Tree.cpp
 
  - Geometry
-Convex_Hull.cpp
-Delaunay.cpp
+geometry/Convex_Hull.cpp
+geometry/Delaunay.cpp
 
  - Graph Theory
-Eulerian.cpp
-SCC.cpp
-Biconnected_Components.cpp
-Max_Flow.cpp
-Max_Flow_Min_Cost.cpp
-Max_Matching.cpp
-Min_Cut.cpp
-LCA.cpp
-HLD.cpp
+graph/Eulerian.cpp
+graph/SCC.cpp
+graph/Biconnected_Components.cpp
+graph/Max_Flow.cpp
+graph/Max_Flow_Min_Cost.cpp
+graph/Max_Matching.cpp
+graph/Min_Cut.cpp
+graph/LCA.cpp
+graph/HLD.cpp
 
  - Mathematics
-General.cpp
-Miller_Rabin.cpp
-Euclid.cpp
-Combinatorics.cpp
-Gauss_Jordon.cpp
-Matrix.cc
+math/General.cpp
+math/Miller_Rabin.cpp
+math/Euclid.cpp
+math/Combinatorics.cpp
+math/Gauss_Jordon.cpp
+math/Matrix.cc
 
  - String
-Manacher's.cpp
-KMP.cpp
-Rabin_Karp.cpp
-Z_Algorithm.cpp
-Suffix_Array.cpp
-Suffix_Tree.cpp
+string/Manacher's.cpp
+string/KMP.cpp
+string/Rabin_Karp.cpp
+string/Z_Algorithm.cpp
+string/Suffix_Array.cpp
+string/Suffix_Tree.cpp

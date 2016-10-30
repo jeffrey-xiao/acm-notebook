@@ -5,6 +5,7 @@ def readOptions () :
 	parser = OptionParser()
 	parser.add_option("-i", "--input", dest="input", help="read latex layout from FILE", metavar="FILE")
 	parser.add_option("-o", "--output", dest="output", help="write output latex to FILE", metavar="FILE")
+	parser.add_option("-c", "--code", dest="folder", help="retrieves code from FOLDER", metavar="FOLDER")
 
 	return parser.parse_args()
 
@@ -19,7 +20,7 @@ def getStyle (filename) :
 	else :
 		return 'txt'
 
-def getTex (input) :
+def getTex (input, folder) :
 	tex = ''
 
 	with open('./' + input) as inputFile :
@@ -29,7 +30,7 @@ def getTex (input) :
 			elif len(line) > 1 :
 				tokens = line.split("/")
 				tex += "\subsection{%s}\n" % tokens[1].strip().replace("_", "\\_")
-				tex += "\lstinputlisting[style=%s]{%s}\n" %(getStyle(line), line.strip()	)
+				tex += "\lstinputlisting[style=%s]{%s/%s}\n" %(getStyle(line), folder, line.strip())
 
 	return tex
 
@@ -41,6 +42,7 @@ if __name__ == "__main__":
 	args = readOptions()
 	input = args[0].input or "content.txt"
 	output = args[0].output or "content.tex"
+	folder = args[0].folder or "../code"
 
-	tex = getTex(input)
+	tex = getTex(input, folder)
 	writeOutput(output, tex)

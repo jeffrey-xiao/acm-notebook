@@ -3,9 +3,9 @@ from optparse import OptionParser
 
 def readOptions () :
 	parser = OptionParser()
-	parser.add_option("-i", "-input", dest="input", help="read latex layout from FILE", metavar="FILE")
-	parser.add_option("-o", "-output", dest="output", help="write output latex to FILE", metavar="FILE")
-	parser.add_option("-c", "-code", dest="folder", help="retrieves code from FOLDER", metavar="FOLDER")
+	parser.add_option("-i", "--input", dest="input", help="read latex layout from FILE", metavar="FILE")
+	parser.add_option("-o", "--output", dest="output", help="write output latex to FILE", metavar="FILE")
+	parser.add_option("-c", "--code", dest="folder", help="retrieves code from FOLDER", metavar="FOLDER")
 
 	return parser.parse_args()
 

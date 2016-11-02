@@ -42,7 +42,7 @@ if __name__ == "__main__":
 	args = readOptions()
 	input = args[0].input or "content.txt"
 	output = args[0].output or "content.tex"
-	folder = args[0].folder or "../code"
+	folder = args[0].folder or "../codebook"
 
 	tex = getTex(input, folder)
 	writeOutput(output, tex)

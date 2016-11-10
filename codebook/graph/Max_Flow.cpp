@@ -14,7 +14,7 @@ struct Network {
         fill(last.begin(), last.end(), -1);
     }
 
-    void AddEdge (int x, int y, int xy, int yx) {
+    void addEdge (int x, int y, int xy, int yx) {
         e.push_back(Edge(y, xy, last[x]));
         last[x] = (int)e.size() - 1;
         e.push_back(Edge(x, yx, last[y]));

@@ -14,9 +14,7 @@ struct Node {
 struct Treap {
     Node* root;
 
-    Treap () {
-        root = nullptr;
-    }
+    Treap (): root(nullptr) {}
 
     // precondition: all values of u are smaller than all values of v
     Node* join (Node* u, Node* v) {
@@ -50,19 +48,20 @@ struct Treap {
         }
     }
     bool contains (int val) {
-        return contains(root, val);
+        Node *curr = root;
+        while (curr != nullptr) {
+            if (curr->val < val)
+                curr = curr->right;
+            else if (curr->val > val)
+                curr = curr->left;
+            else
+                return true;
+        }
+        return false;
     }
-    bool contains (Node* u, int val) {
-        if (u == nullptr)
-            return false;
-        if (u->val < val)
-            return contains(u->right, val);
-        else if (u->val > val)
-            return contains(u->left, val);
-        return true;
-    }
+
     void insert (int val) {
-        if (contains(root, val))
+        if (contains(val))
             return;
         auto nodes = split(root, val);
         root = join(nodes.first, join(new Node(val), nodes.second));
@@ -74,3 +73,20 @@ struct Treap {
         root = join(nodes.first, nodes.second);
     }
 };
+
+int main () {
+    Treap t;
+    set<int> s;
+    int N = 1000000;
+    for (int i = 0; i < N; i++) {
+        int val = rand();
+        t.insert(val);
+        s.insert(val);
+    }
+
+    for (auto i : s) {
+        assert(t.contains(i));
+        t.remove(i);
+        assert(!t.contains(i));
+    }
+}

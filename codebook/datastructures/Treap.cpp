@@ -22,7 +22,7 @@ struct Treap {
             return v;
         if (v == nullptr)
             return u;
-        if (u->p < v->p) {
+        if (u->p > v->p) {
             u->right = join(u->right, v);
             return u;
         }

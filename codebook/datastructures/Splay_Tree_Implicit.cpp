@@ -1,22 +1,19 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+struct Node {
+    int val, sz;
+    Node *child[2], *par;
+    Node () {}
+    Node (int val): val(val) {}
+};
+
 int random () {
     return rand() * 65536 + rand();
 }
 
 struct Splay {
-    struct Node {
-        int val, sz;
-        Node *child[2], *par;
-        Node () {}
-        Node (int val, int sz = 1): val(val), sz(sz) {
-            child[0] = child[1] = par = this;
-        }
-    };
-
-    Node *root;
-    static Node *null;
+    Node *root, *null;
 
     Splay () {
         null = new Node();
@@ -25,12 +22,12 @@ struct Splay {
         root = null;
     }
 
-    static void update (Node* u) {
+    void update (Node* u) {
         if (u != null) u->sz = 1 + u->child[0]->sz + u->child[1]->sz;
     }
 
     // 0 = left, 1 = right;
-    static Node* rotate (Node* u, int dir) {
+    Node* rotate (Node* u, int dir) {
         Node *c = u->child[dir ^ 1], *p = u->par, *pp = p->par;
         p->child[dir] = c;
         c->par = p;
@@ -44,11 +41,11 @@ struct Splay {
         return u;
     }
 
-    static int getDir (Node* u, Node* p) {
+    int getDir (Node* u, Node* p) {
         return p->child[0] == u ? 0 : 1;
     }
 
-    static Node* splay (Node* u) {
+    Node* splay (Node* u) {
         while (u->par != null) {
             Node *p = u->par, *pp = p->par;
             int dp = getDir(u, p), dpp = getDir(p, pp);
@@ -59,7 +56,7 @@ struct Splay {
         return u;
     }
 
-    static Node* nodeAt (Node* u, int index) {
+    Node* nodeAt (Node* u, int index) {
         if (u == null) return u;
         Node* ret = u;
         while (u != null) {
@@ -72,7 +69,7 @@ struct Splay {
     }
 
     // precondition: all values of u are smaller than all values of v
-    static Node* join (Node* u, Node* v) {
+    Node* join (Node* u, Node* v) {
         if (u == null) return v;
         while (u->child[1] != null)
             u = u->child[1];
@@ -84,7 +81,7 @@ struct Splay {
         return u;
     }
 
-    static pair<Node*, Node*> split (Node* u, int index) {
+    pair<Node*, Node*> split (Node* u, int index) {
         if (u == null) return {null, null};
         splay(u = nodeAt(u, index));
 
@@ -118,9 +115,7 @@ struct Splay {
     }
 
     void push_back (int val) {
-        Node *u = new Node(val);
-        u->child[0] = u->child[1] = u->par = null;
-        root = join(root, u);
+        root = join(root, new Node(val));
     }
 
     void insert (int index, int val) {
@@ -146,8 +141,6 @@ struct Splay {
         return nodeAt(root, index)->val;
     }
 };
-
-Splay::Node* Splay::null = new Node(0, 0);
 
 int main () {
     vector<int> l;

@@ -2,7 +2,6 @@
 using namespace std;
 
 struct Treap {
-
     struct Node {
         int val, p, sz;
         Node *left, *right;

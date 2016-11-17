@@ -1,23 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
-int randomPriority () {
-    return rand() * 65536 + rand();
-}
-struct Node {
-    int val, p;
-    Node *left, *right;
-    Node (int val): val(val), p(randomPriority()) {
-        left = nullptr;
-        right = nullptr;
-    }
-};
+
 struct Treap {
+    struct Node {
+        int val, p;
+        Node *left, *right;
+        Node (int val): val(val), p(randomPriority()) {
+            left = nullptr;
+            right = nullptr;
+        }
+    };
+
+    static int randomPriority () {
+        return rand() * 65536 + rand();
+    }
+
     Node* root;
 
     Treap (): root(nullptr) {}
 
     // precondition: all values of u are smaller than all values of v
-    Node* join (Node* u, Node* v) {
+    static Node* join (Node* u, Node* v) {
         if (u == nullptr)
             return v;
         if (v == nullptr)
@@ -30,7 +33,7 @@ struct Treap {
         return v;
     }
 
-    pair<Node*, Node*> split (Node* u, int k) {
+    static pair<Node*, Node*> split (Node* u, int k) {
         if (u == nullptr)
             return make_pair(nullptr, nullptr);
         if (u->val < k) {

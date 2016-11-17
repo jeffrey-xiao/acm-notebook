@@ -1,29 +1,32 @@
 #include <bits/stdc++.h>
 using namespace std;
-int randomPriority () {
-    return rand() * 65536 + rand();
-}
-struct Node {
-    int val, p, sz;
-    Node *left, *right;
-    Node (int val): val(val), p(randomPriority()), sz(1), left(nullptr), right(nullptr) {}
-};
-
-int getSize (Node* u) {
-    return u == nullptr ? 0 : u->sz;
-}
-
-void update (Node* u) {
-    if (u) u->sz = 1 + getSize(u->left) + getSize(u->right);
-}
 
 struct Treap {
+
+    struct Node {
+        int val, p, sz;
+        Node *left, *right;
+        Node (int val): val(val), p(randomPriority()), sz(1), left(nullptr), right(nullptr) {}
+    };
+
+    static int randomPriority () {
+        return rand() * 65536 + rand();
+    }
+
+    static int getSize (Node* u) {
+        return u == nullptr ? 0 : u->sz;
+    }
+
+    static void update (Node* u) {
+        if (u) u->sz = 1 + getSize(u->left) + getSize(u->right);
+    }
+
     Node* root;
 
     Treap (): root(nullptr) {}
 
     // precondition: all values of u are smaller than all values of v
-    Node* join (Node* u, Node* v) {
+    static Node* join (Node* u, Node* v) {
         if (u == nullptr)
             return v;
         if (v == nullptr)
@@ -38,7 +41,7 @@ struct Treap {
         return v;
     }
 
-    pair<Node*, Node*> split (Node* u, int k) {
+    static pair<Node*, Node*> split (Node* u, int k) {
         if (u == nullptr)
             return make_pair(nullptr, nullptr);
         if (getSize(u->left) + 1 > k) {
@@ -104,8 +107,8 @@ int main () {
     vector<int> l;
     Treap t;
     for (int i = 0; i < 100000; i++) {
-        int rnd = abs(randomPriority()) % (i + 1);
-        int val = randomPriority();
+        int rnd = abs(Treap::randomPriority()) % (i + 1);
+        int val = Treap::randomPriority();
         l.insert(l.begin() + rnd, val);
         t.insert(rnd, val);
     }
@@ -116,26 +119,26 @@ int main () {
 
     t.root = nullptr;
     for (int i = 0; i < 1000000; i++) {
-        int rnd = abs(randomPriority()) % (i + 1);
-        int val = randomPriority();
+        int rnd = abs(Treap::randomPriority()) % (i + 1);
+        int val = Treap::randomPriority();
 
         t.insert(rnd, val);
     }
 
 
     for (int i = 0; i < 1000000; i++) {
-        int rnd = abs(randomPriority()) % (1000000);
-        int val = randomPriority();
+        int rnd = abs(Treap::randomPriority()) % (1000000);
+        int val = Treap::randomPriority();
 
         t.modify(rnd, val);
         assert(t.get(rnd) == val);
     }
 
     for (int i = 999999; i >= 0; i--) {
-        int rnd = abs(randomPriority()) % (i + 1) + 1;
+        int rnd = abs(Treap::randomPriority()) % (i + 1) + 1;
         int prev = t.get(rnd);
         t.remove(rnd);
-        if (rnd < getSize(t.root))
+        if (rnd < Treap::getSize(t.root))
             assert(prev != t.get(rnd));
     }
     return 0;

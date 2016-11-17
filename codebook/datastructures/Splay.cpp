@@ -1,22 +1,24 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct Node {
-    int val;
-    Node *child[2], *par;
-};
-
 struct Splay {
-    Node *root, *null;
+    struct Node {
+        int val;
+        Node *child[2], *par;
+        Node (int val): val(val) {
+            child[0] = this;
+            child[1] = this;
+            par = this;
+        }
+    };
 
-    Splay () {
-        null = new Node();
-        null->child[0] = null->child[1] = null->par = null;
-        root = null;
-    }
+    static Node *null;
+    Node *root;
+
+    Splay (): root(null) {}
 
     // 0 = left, 1 = right;
-    Node* rotate (Node* u, int dir) {
+    static Node* rotate (Node* u, int dir) {
         Node *c = u->child[dir ^ 1], *p = u->par, *pp = p->par;
         p->child[dir] = c;
         c->par = p;
@@ -27,11 +29,11 @@ struct Splay {
         return u;
     }
 
-    int getDir (Node* u, Node* p) {
+    static int getDir (Node* u, Node* p) {
         return p->child[0] == u ? 0 : 1;
     }
 
-    Node* splay (Node* u) {
+    static Node* splay (Node* u) {
         while (u->par != null) {
             Node *p = u->par, *pp = p->par;
             int dp = getDir(u, p), dpp = getDir(p, pp);
@@ -43,7 +45,7 @@ struct Splay {
     }
 
     // closest node to val
-    Node* nodeAt (Node* u, int val) {
+    static Node* nodeAt (Node* u, int val) {
         if (u == null) return u;
         Node* ret = u;
         while (u != null) {
@@ -56,7 +58,7 @@ struct Splay {
     }
 
     // precondition: all values of u are smaller than all values of v
-    Node* join (Node* u, Node* v) {
+    static Node* join (Node* u, Node* v) {
         if (u == null) return v;
         while (u->child[1] != null)
             u = u->child[1];
@@ -67,7 +69,7 @@ struct Splay {
         return u;
     }
 
-    pair<Node*, Node*> split (Node* u, int val) {
+    static pair<Node*, Node*> split (Node* u, int val) {
         if (u == null) return {null, null};
         splay(u = nodeAt(u, val));
 
@@ -102,8 +104,7 @@ struct Splay {
         if (contains(val))
             return;
         auto res = split(root, val);
-        root = new Node();
-        root->val = val;
+        root = new Node(val);
         root->par = null;
         root->child[0] = res.first, root->child[1] = res.second;
         if (root->child[0] != null)
@@ -119,6 +120,8 @@ struct Splay {
         root = join(curr->child[0], curr->child[1]);
     }
 };
+
+Splay::Node* Splay::null = new Node(0);
 
 int main () {
     Splay t;

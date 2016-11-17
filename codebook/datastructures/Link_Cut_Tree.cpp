@@ -51,7 +51,7 @@ struct LinkCut {
         return u;
     }
 
-    void splay (Node *u) {
+    static void splay (Node *u) {
         while (u->par != null) {
             Node *p = u->par, *pp = p->par;
             int dp = getDir(u, p), dpp = getDir(p, pp);
@@ -61,7 +61,7 @@ struct LinkCut {
         }
     }
 
-    Node* access (Node* u) {
+    static Node* access (Node* u) {
         splay(u);
         if (u->child[1] != null) {
             u->child[1]->pathPar = u;
@@ -88,7 +88,7 @@ struct LinkCut {
     }
 
     // precondition: n must be a root node, and n and m must be in different trees
-    void link (Node *n, Node *m) {
+    static void link (Node *n, Node *m) {
         n = access(n);
         m = access(m);
         n->child[0] = m;
@@ -97,7 +97,7 @@ struct LinkCut {
     }
 
     // precondition: n must not be a root node
-    void cut (Node *n) {
+    static void cut (Node *n) {
         n = access(n);
         if (n->child[0] != null) {
             n->child[0]->par = null;
@@ -106,7 +106,7 @@ struct LinkCut {
         update(n);
     }
 
-    Node* getRoot (Node *n) {
+    static Node* getRoot (Node *n) {
         n = access(n);
         while (n->child[0] != null)
             n = n->child[0];
@@ -114,7 +114,7 @@ struct LinkCut {
         return n;
     }
 
-    int getHeight (Node *n) {
+    static int getHeight (Node *n) {
         access(n);
         return n->child[0]->sz + 1;
     }

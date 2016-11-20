@@ -4,9 +4,9 @@ using namespace std;
 
 struct LinkCut {
     struct Node {
-        int sz;
+        int index, sz;
         Node *child[2], *par, *pathPar;
-        Node (int sz): sz(sz) {
+        Node (int index, int sz): index(index), sz(sz) {
             child[0] = this;
             child[1] = this;
             par = this;
@@ -19,7 +19,7 @@ struct LinkCut {
 
     LinkCut (int N): nodes(N) {
         for (int i = 0; i < N; i++) {
-            nodes[i] = new Node(1);
+            nodes[i] = new Node(i, 1);
             nodes[i]->child[0] = nodes[i]->child[1] = nodes[i]->par = nodes[i]->pathPar = null;
         }
     }
@@ -34,14 +34,16 @@ struct LinkCut {
         return p->child[0] == u ? 0 : 1;
     }
 
+    static void connect (Node* u, Node* v, int dir) {
+        u->child[dir] = v;
+        v->par = u;
+    }
+
     static Node* rotate (Node* u, int dir) {
         Node *c = u->child[dir ^ 1], *p = u->par, *pp = p->par;
-        p->child[dir] = c;
-        c->par = p;
-        u->child[dir ^ 1] = p;
-        p->par = u;
-        u->par = pp;
-        pp->child[getDir(p, pp)] = u;
+        connect(p, c, dir);
+        connect(u, p, dir ^ 1);
+        connect(pp, u, getDir(p, pp));
 
         u->pathPar = p->pathPar;
         p->pathPar = null;
@@ -62,35 +64,30 @@ struct LinkCut {
     }
 
     static Node* access (Node* u) {
-        splay(u);
-        if (u->child[1] != null) {
-            u->child[1]->pathPar = u;
-            u->child[1]->par = null;
-            u->child[1] = null;
-            update(u);
-        }
-        Node* w = u;
-        while (u->pathPar != null) {
-            Node *v = u->pathPar;
+        Node *prev = null;
+        for (Node *v = u; v != null; v = v->pathPar) {
             splay(v);
             if (v->child[1] != null) {
                 v->child[1]->pathPar = v;
                 v->child[1]->par = null;
+                v->child[1] = null;
             }
-            v->child[1] = u;
+            v->child[1] = prev;
             update(v);
-            u->par = v;
-            u->pathPar = null;
-            u = v;
+            if (prev != null) {
+                prev->par = v;
+                prev->pathPar = null;
+            }
+            prev = v;
         }
-        splay(w);
-        return w;
+        splay(u);
+        return prev;
     }
 
     // precondition: n must be a root node, and n and m must be in different trees
     static void link (Node *n, Node *m) {
-        n = access(n);
-        m = access(m);
+        access(n);
+        access(m);
         n->child[0] = m;
         m->par = n;
         update(n);
@@ -98,7 +95,7 @@ struct LinkCut {
 
     // precondition: n must not be a root node
     static void cut (Node *n) {
-        n = access(n);
+        access(n);
         if (n->child[0] != null) {
             n->child[0]->par = null;
             n->child[0] = null;
@@ -107,10 +104,10 @@ struct LinkCut {
     }
 
     static Node* getRoot (Node *n) {
-        n = access(n);
+        access(n);
         while (n->child[0] != null)
             n = n->child[0];
-        n = access(n);
+        access(n);
         return n;
     }
 
@@ -118,9 +115,14 @@ struct LinkCut {
         access(n);
         return n->child[0]->sz + 1;
     }
+
+    static int lca (Node *u, Node *v) {
+        access(u);
+        return access(v)->index;
+    }
 };
 
-LinkCut::Node* LinkCut::null = new Node(0);
+LinkCut::Node* LinkCut::null = new Node(-1, 0);
 #define scan(x) do{while((x=getchar())<'0'); for(x-='0'; '0'<=(_=getchar()); x=(x<<3)+(x<<1)+_-'0');}while(0)
 char _;
 int main () {

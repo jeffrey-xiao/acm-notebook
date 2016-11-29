@@ -1,50 +1,55 @@
 # ACM-Notebook
 
-## Contents
-Algorithms
+## ContentsAlgorithms
  - Mo.cpp
- 
+
+ - Dynamic Programming
+ - Convex_Hull_Trick.cpp
+ - Convex_Hull_Trick_Dynamic.cpp
+ - Divide_And_Conquer.cpp
+ - Knuth.cpp
+
 Data Structures
  - BIT.cpp
  - BIT_Range.cpp
- - Persistent_Segment_Tree.cpp
  - Treap.cpp
- 
-Dynamic Programming
- - Convex_Hull_Trick.cpp
- - Divide_And_Conquer.cpp
- - Knuth.cpp
- 
+ - Treap_Implicit.cpp
+ - Splay.cpp
+ - Splay_Implicit.cpp
+ - Link_Cut_Tree.cpp
+ - Persistent_Segment_Tree.cpp
+
 Geometry
  - Convex_Hull.cpp
  - Delaunay.cpp
- 
-Graph
- - Biconnected_Components.cpp
+
+Graph Theory
  - Eulerian.cpp
- - HLD.cpp
- - LCA.cpp
+ - SCC.cpp
+ - Biconnected_Components.cpp
  - Max_Flow.cpp
  - Max_Flow_Min_Cost.cpp
  - Max_Matching.cpp
  - Min_Cut.cpp
- - SCC.cpp
- 
-Math
- - Combinatorics.cpp
- - Euclid.cpp
- - Gauss_Jordon.cpp
+ - LCA.cpp
+ - HLD.cpp
+
+Mathematics
  - General.cpp
- - Matrix.cc
  - Miller_Rabin.cpp
- 
+ - Euclid.cpp
+ - Combinatorics.cpp
+ - Gauss_Jordon.cpp
+ - Matrix.cpp
+ - FFT.cpp
+
 String
- - KMP.cpp
  - Manacher's.cpp
+ - KMP.cpp
  - Rabin_Karp.cpp
+ - Z_Algorithm.cpp
  - Suffix_Array.cpp
  - Suffix_Tree.cpp
- - Z_Algorithm.cpp
 
 ## Compilation
  - Add the files into `content.txt`.

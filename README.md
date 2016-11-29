@@ -1,6 +1,7 @@
 # ACM-Notebook
 
-## ContentsAlgorithms
+## Contents
+Algorithms
  - Mo.cpp
 
  - Dynamic Programming

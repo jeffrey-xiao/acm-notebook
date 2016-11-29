@@ -17,15 +17,17 @@ struct Splay {
 
     Splay (): root(null) {}
 
+    static void connect (Node* u, Node* v, int dir) {
+        u->child[dir] = v;
+        v->par = u;
+    }
+
     // 0 = left, 1 = right;
     static Node* rotate (Node* u, int dir) {
         Node *c = u->child[dir ^ 1], *p = u->par, *pp = p->par;
-        p->child[dir] = c;
-        c->par = p;
-        u->child[dir ^ 1] = p;
-        p->par = u;
-        u->par = pp;
-        pp->child[getDir(p, pp)] = u;
+        connect(p, c, dir);
+        connect(u, p, dir ^ 1);
+        connect(pp, u, getDir(p, pp));
         return u;
     }
 

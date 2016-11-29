@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.10.2)  1 NOV 2016 21:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.10.2)  29 NOV 2016 02:20
 entering extended mode
-**template
-(template.tex
+**C:/Users/Jeffrey/workspace/GitHub/ACM-Notebook/notebook/template.tex
+(C:/Users/Jeffrey/workspace/GitHub/ACM-Notebook/notebook/template.tex
 LaTeX2e <2015/01/01> patch level 2
 Babel <3.9m> and hyphenation patterns for 69 languages loaded.
 ("C:\Program Files (x86)\MiKTeX\tex\latex\base\article.cls"
@@ -458,45 +458,49 @@ LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <7> not available
 (Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 1.
 LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <7> not available
 (Font)              Font shape `OT1/pcr/b/n' tried instead on input line 2.
-) (../codebook/dp/Convex_Hull_Trick.cpp [1{C:/Users/Jeffrey/AppData/Local/MiKTe
-X/2.9/pdftex/config/pdftex.map}
+) [1{C:/Users/Jeffrey/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
-])
-(../codebook/dp/Divide_And_Conquer.cpp) (../codebook/dp/Knuth.cpp) [2]
-(../codebook/datastructures/BIT.cpp) (../codebook/datastructures/BIT_Range.cpp)
-(../codebook/datastructures/Treap.cpp)
-(../codebook/datastructures/Persistent_Segment_Tree.cpp [3])
-(../codebook/geometry/Convex_Hull.cpp) (../codebook/geometry/Delaunay.cpp)
-(../codebook/graph/Eulerian.cpp [4]) (../codebook/graph/SCC.cpp)
-(../codebook/graph/Biconnected_Components.cpp [5])
+] (../codebook/dp/Convex_Hull_Trick.cpp)
+(../codebook/dp/Convex_Hull_Trick_Dynamic.cpp)
+(../codebook/dp/Divide_And_Conquer.cpp [2]) (../codebook/dp/Knuth.cpp)
+(../codebook/datastructures/BIT.cpp) (../codebook/datastructures/BIT_Range.cpp
+[3]) (../codebook/datastructures/Treap.cpp)
+(../codebook/datastructures/Treap_Implicit.cpp [4])
+(../codebook/datastructures/Splay.cpp [5])
+(../codebook/datastructures/Splay_Implicit.cpp [6])
+(../codebook/datastructures/Link_Cut_Tree.cpp [7] [8])
+(../codebook/datastructures/Persistent_Segment_Tree.cpp)
+(../codebook/geometry/Convex_Hull.cpp) (../codebook/geometry/Delaunay.cpp
+[9]) (../codebook/graph/Eulerian.cpp) (../codebook/graph/SCC.cpp)
+(../codebook/graph/Biconnected_Components.cpp [10])
 (../codebook/graph/Max_Flow.cpp) (../codebook/graph/Max_Flow_Min_Cost.cpp
-[6]) (../codebook/graph/Max_Matching.cpp [7]) (../codebook/graph/Min_Cut.cpp)
-(../codebook/graph/LCA.cpp) (../codebook/graph/HLD.cpp [8])
-(../codebook/math/General.cpp) (../codebook/math/Miller_Rabin.cpp [9])
-(../codebook/math/Euclid.cpp) (../codebook/math/Combinatorics.cpp [10])
-(../codebook/math/Gauss_Jordon.cpp) (../codebook/math/Matrix.cc [11])
-(../codebook/string/Manacher's.cpp [12]) (../codebook/string/KMP.cpp)
-(../codebook/string/Rabin_Karp.cpp) (../codebook/string/Z_Algorithm.cpp)
-(../codebook/string/Suffix_Array.cpp [13]) (../codebook/string/Suffix_Tree.cpp
-[14])) [15]
+[11]) (../codebook/graph/Max_Matching.cpp [12]) (../codebook/graph/Min_Cut.cpp)
+(../codebook/graph/LCA.cpp) (../codebook/graph/HLD.cpp [13])
+(../codebook/math/General.cpp) (../codebook/math/Miller_Rabin.cpp [14])
+(../codebook/math/Euclid.cpp) (../codebook/math/Combinatorics.cpp [15])
+(../codebook/math/Gauss_Jordon.cpp) (../codebook/math/Matrix.cpp [16]) [17]
+(../codebook/math/FFT.cpp) (../codebook/string/Manacher's.cpp)
+(../codebook/string/KMP.cpp [18]) (../codebook/string/Rabin_Karp.cpp)
+(../codebook/string/Z_Algorithm.cpp) (../codebook/string/Suffix_Array.cpp)
+[19] (../codebook/string/Suffix_Tree.cpp)) [20]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 88.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 88.
  (template.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 88.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 88.
 Package rerunfilecheck Info: File `template.out' has not changed.
-(rerunfilecheck)             Checksum: 398E7540ED5D901500AB7E436ACF6E32;2395.
+(rerunfilecheck)             Checksum: 3FD718541EEB277DE2A4D0905EEEF2B7;2821.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 88.
  ) 
 Here is how much of TeX's memory you used:
- 10782 strings out of 493673
- 156391 string characters out of 3143144
- 750540 words of memory out of 3000000
- 11953 multiletter control sequences out of 15000+200000
+ 11801 strings out of 493673
+ 172455 string characters out of 3143144
+ 927935 words of memory out of 3000000
+ 12083 multiletter control sequences out of 15000+200000
  9895 words of font info for 35 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 40i,12n,68p,278b,2006s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 40i,12n,68p,336b,2010s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX/fonts/enc/dvips/fontname/8r.enc}<C:/Program Fi
 les (x86)/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files (x
 86)/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/Mi
@@ -505,9 +509,9 @@ nts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/MiKTeX/fonts/typ
 e1/public/amsfonts/cm/cmsl10.pfb><C:/Program Files (x86)/MiKTeX/fonts/type1/urw
 /courier/ucrb8a.pfb><C:/Program Files (x86)/MiKTeX/fonts/type1/urw/courier/ucrr
 8a.pfb><C:/Program Files (x86)/MiKTeX/fonts/type1/urw/courier/ucrro8a.pfb>
-Output written on template.pdf (15 pages, 456921 bytes).
+Output written on template.pdf (20 pages, 594659 bytes).
 PDF statistics:
- 2643 PDF objects out of 2984 (max. 8388607)
- 2001 named destinations out of 2073 (max. 500000)
- 305 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3728 PDF objects out of 4296 (max. 8388607)
+ 2872 named destinations out of 2984 (max. 500000)
+ 353 words of extra memory for PDF output out of 10000 (max. 10000000)
 

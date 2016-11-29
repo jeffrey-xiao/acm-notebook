@@ -27,7 +27,7 @@ def getTex (input, folder) :
 		for line in inputFile :
 			if len(line) > 3 and line[0:3] == ' - ':
 				tex += "\section{%s}\n" % line[3:].strip()
-			elif len(line) > 1 :
+			elif len(line.strip()) > 1 :
 				tokens = line.split("/")
 				tex += "\subsection{%s}\n" % tokens[1].strip().replace("_", "\\_")
 				tex += "\lstinputlisting[style=%s]{%s/%s}\n" %(getStyle(line), folder, line.strip())

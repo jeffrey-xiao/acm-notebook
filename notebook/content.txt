@@ -3,6 +3,7 @@ algorithms/Mo.cpp
 
  - Dynamic Programming
 dp/Convex_Hull_Trick.cpp
+dp/Convex_Hull_Trick_Dynamic.cpp
 dp/Divide_And_Conquer.cpp
 dp/Knuth.cpp
 
@@ -10,7 +11,12 @@ dp/Knuth.cpp
 datastructures/BIT.cpp
 datastructures/BIT_Range.cpp
 datastructures/Treap.cpp
+datastructures/Treap_Implicit.cpp
+datastructures/Splay.cpp
+datastructures/Splay_Implicit.cpp
+datastructures/Link_Cut_Tree.cpp
 datastructures/Persistent_Segment_Tree.cpp
+
 
  - Geometry
 geometry/Convex_Hull.cpp
@@ -33,7 +39,8 @@ math/Miller_Rabin.cpp
 math/Euclid.cpp
 math/Combinatorics.cpp
 math/Gauss_Jordon.cpp
-math/Matrix.cc
+math/Matrix.cpp
+math/FFT.cpp
 
  - String
 string/Manacher's.cpp

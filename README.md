@@ -3,7 +3,6 @@
 ## Contents
 Algorithms
  - Mo.cpp
-
  - Dynamic Programming
  - Convex_Hull_Trick.cpp
  - Convex_Hull_Trick_Dynamic.cpp

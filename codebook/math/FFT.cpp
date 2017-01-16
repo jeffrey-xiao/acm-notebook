@@ -50,7 +50,7 @@ vector<double> multiplyPolynomial (vector<double> a, vector<double> b) {
     FFT(x.data(), y.data(), N);
     vector<double> ret(N);
     for (int i = 0; i < N; i++) {
-        ret[i] = (real(y[i]) + 0.5) / N;
+        ret[i] = real(y[i]) / N;
     }
     return ret;
 }

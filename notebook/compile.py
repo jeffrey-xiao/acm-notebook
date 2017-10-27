@@ -1,48 +1,70 @@
+#!/usr/bin/env python
+import argparse
 import sys
-from optparse import OptionParser
 
-def readOptions () :
-	parser = OptionParser()
-	parser.add_option("-i", "--input", dest="input", help="read latex layout from FILE", metavar="FILE")
-	parser.add_option("-o", "--output", dest="output", help="write output latex to FILE", metavar="FILE")
-	parser.add_option("-c", "--code", dest="folder", help="retrieves code from FOLDER", metavar="FOLDER")
 
-	return parser.parse_args()
+def read_options(argv=None):
+    parser = argparse.ArgumentParser(
+        description='Compiling script for acm notebook',
+    )
+    parser.add_argument(
+        "-i", "--input", dest="input", metavar="FILE",
+        help="read latex layout from FILE",
+    )
+    parser.add_argument(
+        "-o", "--output", dest="output", metavar="FILE",
+        help="write output latex to FILE",
+    )
+    parser.add_argument(
+        "-c", "--code", dest="folder", metavar="DIR",
+        help="retrieves code from DIR",
+    )
 
-def getStyle (filename) :
-	ext = filename.lower().split('.')[-1].strip()
-	if ext in ['c', 'cc', 'cpp'] :
-		return 'cpp'
-	if ext in ['java'] :
-		return 'java'
-	if ext in ['py'] :
-		return 'py'
-	else :
-		return 'txt'
+    return parser.parse_args(argv)
 
-def getTex (input, folder) :
-	tex = ''
 
-	with open('./' + input) as inputFile :
-		for line in inputFile :
-			if len(line) > 3 and line[0:3] == ' - ':
-				tex += "\section{%s}\n" % line[3:].strip()
-			elif len(line.strip()) > 1 :
-				tokens = line.split("/")
-				tex += "\subsection{%s}\n" % tokens[1].strip().replace("_", "\\_")
-				tex += "\lstinputlisting[style=%s]{%s/%s}\n" %(getStyle(line), folder, line.strip())
+def get_style(filename):
+    ext = filename.lower().split('.')[-1].strip()
+    if ext in ['c', 'cc', 'cpp']:
+        return 'cpp'
+    if ext in ['java']:
+        return 'java'
+    if ext in ['py']:
+        return 'py'
+    else:
+        return 'txt'
 
-	return tex
 
-def writeOutput (output, tex) :
-	with open('./' + output, "w") as outputFile :
-		outputFile.write(tex)
+def get_tex(input, folder):
+    tex = ''
+    with open('./' + input) as input_file:
+        for line in input_file:
+            if len(line) > 3 and line[0:3] == ' - ':
+                tex += "\section{{{}}}\n".format(line[3:].strip())
+            elif len(line.strip()) > 1:
+                tokens = line.split("/")
+                tex += "\subsection{{{}}}\n".format(
+                    tokens[1].strip().replace("_", "\\_")
+                )
+                tex += "\lstinputlisting[style={}]{{{}/{}}}\n".format(
+                    get_style(line),
+                    folder,
+                    line.strip(),
+                )
+
+    return tex
+
+
+def write_output(output, tex):
+    with open(output, "w") as output_file:
+        output_file.write(tex)
+
 
 if __name__ == "__main__":
-	args = readOptions()
-	input = args[0].input or "content.txt"
-	output = args[0].output or "content.tex"
-	folder = args[0].folder or "../codebook"
+    args = read_options(sys.argv[1:])
+    input = args.input or "content.txt"
+    output = args.output or "content.tex"
+    folder = args.folder or "../codebook"
 
-	tex = getTex(input, folder)
-	writeOutput(output, tex)
+    tex = get_tex(input, folder)
+    write_output(output, tex)

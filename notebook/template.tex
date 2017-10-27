@@ -11,7 +11,7 @@
 \usepackage{courier}
 
 \hypersetup{%
-    pdfborder = {0 0 0}
+  pdfborder = {0 0 0}
 }
 
 \cfoot{}
@@ -22,50 +22,50 @@
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 
 \lstdefinestyle{shared}{
-    aboveskip=-5pt,
-    belowcaptionskip=1\baselineskip,
-    breaklines=true,
-    xleftmargin=0pt,
-    showstringspaces=false,
-    basicstyle=\fontsize{7}{6}\ttfamily,
+  aboveskip=-5pt,
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  xleftmargin=0pt,
+  showstringspaces=false,
+  basicstyle=\fontsize{7}{6}\ttfamily,
 }
 \lstdefinestyle{cpp}{
-	style=shared,
-    language=C++,
-    keywordstyle=\bfseries\color{blue!50!black},
-    commentstyle=\itshape\color{green!50!black},
-    identifierstyle=\color{black},
-    stringstyle=\color{orange!80!black},
+  style=shared,
+  language=C++,
+  keywordstyle=\bfseries\color{blue!50!black},
+  commentstyle=\itshape\color{green!50!black},
+  identifierstyle=\color{black},
+  stringstyle=\color{orange!80!black},
 }
 \lstdefinestyle{java}{
-    style=shared,
-    language=Java,
-    keywordstyle=\bfseries\color{green!40!black},
-    commentstyle=\itshape\color{purple!40!black},
-    identifierstyle=\color{blue},
-    stringstyle=\color{orange},
+  style=shared,
+  language=Java,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
 }
 \lstdefinestyle{py}{
-    style=shared,
-    language=Python,
-    keywordstyle=\bfseries\color{green!40!black},
-    commentstyle=\itshape\color{purple!40!black},
-    identifierstyle=\color{blue},
-    stringstyle=\color{orange},
+  style=shared,
+  language=Python,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
 }
 \lstdefinestyle{txt}{
-    style=shared,
+  style=shared,
 }
 \lstset{escapechar=@}
 
 \fancypagestyle{plain}
 {
-\fancyhead[L]{Waterloo White}
-\fancyhead[R]{\thepage}
-\fancyfoot[C]{}
+  \fancyhead[L]{Waterloo Gold}
+  \fancyhead[R]{\thepage}
+  \fancyfoot[C]{}
 }
 
-\title{\vspace{-7ex}\Large{Waterloo White (2015-16)}}
+\title{\vspace{-7ex}\Large{Waterloo Gold (2016--17)}}
 \author{}
 \date{}
 
@@ -74,15 +74,13 @@
 
 \begin{document}    
 \begin{landscape}
-\begin{multicols}{2}
+  \begin{multicols}{2}
+    \pagestyle{fancy}
+    \maketitle
 
-\pagestyle{fancy}
-\maketitle
-
-
-\vspace{-16ex}
-\tableofcontents
-\input content.tex
-\end{multicols}
+    \vspace{-16ex}
+    \tableofcontents
+    \input content.tex
+  \end{multicols}
 \end{landscape}
 \end{document}

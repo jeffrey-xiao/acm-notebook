@@ -1,51 +1,54 @@
  - Algorithms
-algorithms/Mo.cpp
+algorithms/Mo.cc
 
  - Dynamic Programming
-dp/Convex_Hull_Trick.cpp
-dp/Convex_Hull_Trick_Dynamic.cpp
-dp/Divide_And_Conquer.cpp
-dp/Knuth.cpp
+dp/Convex_Hull_Trick.cc
+dp/Convex_Hull_Trick_Dynamic.cc
+dp/Divide_And_Conquer.cc
+dp/Knuth.cc
 
  - Data Structures
-datastructures/BIT.cpp
-datastructures/BIT_Range.cpp
-datastructures/Treap.cpp
-datastructures/Treap_Implicit.cpp
-datastructures/Splay.cpp
-datastructures/Splay_Implicit.cpp
-datastructures/Link_Cut_Tree.cpp
-datastructures/Persistent_Segment_Tree.cpp
+datastructures/BIT.cc
+datastructures/BIT_Range.cc
+datastructures/Treap.cc
+datastructures/Treap_Implicit.cc
+datastructures/Splay.cc
+datastructures/Splay_Implicit.cc
+datastructures/Link_Cut_Tree.cc
+datastructures/Persistent_Segment_Tree.cc
 
 
  - Geometry
-geometry/Convex_Hull.cpp
-geometry/Delaunay.cpp
+geometry/Convex_Hull.cc
+geometry/Delaunay.cc
 
  - Graph Theory
-graph/Eulerian.cpp
-graph/SCC.cpp
-graph/Biconnected_Components.cpp
-graph/Max_Flow.cpp
-graph/Max_Flow_Min_Cost.cpp
-graph/Max_Matching.cpp
-graph/Min_Cut.cpp
-graph/LCA.cpp
-graph/HLD.cpp
+graph/Eulerian.cc
+graph/SCC.cc
+graph/Biconnected_Components.cc
+graph/Max_Flow.cc
+graph/Max_Flow_Min_Cost.cc
+graph/Max_Matching.cc
+graph/Min_Cut.cc
+graph/LCA.cc
+graph/HLD.cc
 
  - Mathematics
-math/General.cpp
-math/Miller_Rabin.cpp
-math/Euclid.cpp
-math/Combinatorics.cpp
-math/Gauss_Jordon.cpp
-math/Matrix.cpp
-math/FFT.cpp
+math/General.cc
+math/Miller_Rabin.cc
+math/Euclid.cc
+math/Combinatorics.cc
+math/Gauss_Jordon.cc
+math/Matrix.cc
+math/FFT.cc
 
  - String
-string/Manacher's.cpp
-string/KMP.cpp
-string/Rabin_Karp.cpp
-string/Z_Algorithm.cpp
-string/Suffix_Array.cpp
-string/Suffix_Tree.cpp
+string/Manacher's.cc
+string/KMP.cc
+string/Rabin_Karp.cc
+string/Z_Algorithm.cc
+string/Suffix_Array.cc
+string/Suffix_Tree.cc
+
+ - Misc
+misc/.vimrc

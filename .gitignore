@@ -1,2 +1,13 @@
-*.o
-*.exe
+# Ignore files with no extension
+*
+!*/
+!*.*
+
+# Ignore latex auxiliary files
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.tox
+*.fdb_latexmk
+*.fls

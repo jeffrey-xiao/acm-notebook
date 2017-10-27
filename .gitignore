@@ -8,6 +8,6 @@
 *.log
 *.out
 *.synctex.gz
-*.tox
+*.toc
 *.fdb_latexmk
 *.fls

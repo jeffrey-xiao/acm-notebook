@@ -21,7 +21,7 @@
 {0pt}{10pt}{10pt}
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 
-\lstdefinestyle{shared}{
+\lstdefinestyle{shared}{%
   aboveskip=-5pt,
   belowcaptionskip=1\baselineskip,
   breaklines=true,
@@ -29,7 +29,7 @@
   showstringspaces=false,
   basicstyle=\fontsize{7}{6}\ttfamily,
 }
-\lstdefinestyle{cpp}{
+\lstdefinestyle{cpp}{%
   style=shared,
   language=C++,
   keywordstyle=\bfseries\color{blue!50!black},
@@ -37,7 +37,7 @@
   identifierstyle=\color{black},
   stringstyle=\color{orange!80!black},
 }
-\lstdefinestyle{java}{
+\lstdefinestyle{java}{%
   style=shared,
   language=Java,
   keywordstyle=\bfseries\color{green!40!black},
@@ -45,7 +45,7 @@
   identifierstyle=\color{blue},
   stringstyle=\color{orange},
 }
-\lstdefinestyle{py}{
+\lstdefinestyle{py}{%
   style=shared,
   language=Python,
   keywordstyle=\bfseries\color{green!40!black},
@@ -53,13 +53,13 @@
   identifierstyle=\color{blue},
   stringstyle=\color{orange},
 }
-\lstdefinestyle{txt}{
+\lstdefinestyle{txt}{%
   style=shared,
 }
 \lstset{escapechar=@}
 
 \fancypagestyle{plain}
-{
+{%
   \fancyhead[L]{Waterloo Gold}
   \fancyhead[R]{\thepage}
   \fancyfoot[C]{}

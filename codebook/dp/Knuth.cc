@@ -12,10 +12,13 @@
  *
  * Given the length of the string N, and M places to break the string at,
  * what is the minimum amount of time to break the string?
+ *
+ * Time Improvement: O(N^3) -> O(N^2)
+ * Memory: O(N^2)
  */
 
-
 #include <bits/stdc++.h>
+
 #define SIZE 1005
 
 typedef long long ll;
@@ -26,31 +29,30 @@ int pos[SIZE];
 int N, M;
 
 int main () {
-    while (scanf("%d%d", &N, &M) != EOF) {
-        for (int i = 1; i <= M; i++)
-            scanf("%d", &pos[i]);
-        pos[0] = 0;
-        pos[M + 1] = N;
+  while (scanf("%d%d", &N, &M) != EOF) {
+    for (int i = 1; i <= M; i++)
+      scanf("%d", &pos[i]);
+    pos[0] = 0;
+    pos[M + 1] = N;
 
-        for (int i = 0; i <= M + 1; i++) {
-            for (int j = 0; j + i <= M + 1; j++) {
-                if (i < 2) {
-                    dp[j][j + i] = 0LL;
-                    mid[j][j + i] = j;
-                    continue;
-                }
-                dp[j][j + i] = 1LL << 60;
-                for (int k = mid[j][i + j - 1]; k <= mid[j + 1][i + j]; k++) {
-                    ll next = dp[j][k] + dp[k][j + i] + pos[j + i] - pos[j];
-                    if (next < dp[j][j + i]) {
-                        dp[j][j + i] = next;
-                        mid[j][j + i] = k;
-                    }
-                }
-            }
+    for (int i = 0; i <= M + 1; i++) {
+      for (int j = 0; j + i <= M + 1; j++) {
+        if (i < 2) {
+          dp[j][j + i] = 0LL;
+          mid[j][j + i] = j;
+          continue;
         }
-
-        printf("%lld\n", dp[0][M + 1]);
+        dp[j][j + i] = 1LL << 60;
+        for (int k = mid[j][i + j - 1]; k <= mid[j + 1][i + j]; k++) {
+          ll next = dp[j][k] + dp[k][j + i] + pos[j + i] - pos[j];
+          if (next < dp[j][j + i]) {
+            dp[j][j + i] = next;
+            mid[j][j + i] = k;
+          }
+        }
+      }
     }
-    return 0;
+    printf("%lld\n", dp[0][M + 1]);
+  }
+  return 0;
 }

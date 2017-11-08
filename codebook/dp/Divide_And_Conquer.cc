@@ -7,6 +7,9 @@
  * will be divided into K non-empty contiguous groups. Each division has
  * a total unfamiliarity value which is the sum of the levels of
  * unfamiliarty between any pair of people for each group
+ *
+ * Time Improvement: O(KN^2) -> O(KN log N)
+ * Memory: O(KN)
  */
 
 #include <bits/stdc++.h>
@@ -22,40 +25,40 @@ int A[MAX_N][MAX_N];
 int dp[MAX_K][MAX_N];
 
 void compute (int g, int i, int j, int l, int r) {
-    if (i > j)
-        return;
-    int mid = (i + j) >> 1;
-    int bestIndex = l;
-    for (int k = l; k <= min(mid, r); k++) {
-        int val = dp[g - 1][k - 1] + (A[mid][mid] - A[mid][k - 1] - A[k - 1][mid] + A[k - 1][k - 1]);
-        if (val < dp[g][mid]) {
-            dp[g][mid] = val;
-            bestIndex = k;
-        }
+  if (i > j)
+    return;
+  int mid = (i + j) >> 1;
+  int bestIndex = l;
+  for (int k = l; k <= min(mid, r); k++) {
+    int val = dp[g - 1][k - 1] + (A[mid][mid] - A[mid][k - 1] - A[k - 1][mid] + A[k - 1][k - 1]);
+    if (val < dp[g][mid]) {
+      dp[g][mid] = val;
+      bestIndex = k;
     }
-    compute(g, i, mid - 1, l, bestIndex);
-    compute(g, mid + 1, j, bestIndex, r);
+  }
+  compute(g, i, mid - 1, l, bestIndex);
+  compute(g, mid + 1, j, bestIndex, r);
 }
 
 int main () {
-    scan(N);
-    scan(K);
+  scan(N);
+  scan(K);
 
-    for (int i = 1; i <= N; i++) {
-        for (int j = 1; j <= N; j++) {
-            scan(A[i][j]);
-            A[i][j] += A[i - 1][j] + A[i][j - 1] - A[i - 1][j - 1];
-        }
+  for (int i = 1; i <= N; i++) {
+    for (int j = 1; j <= N; j++) {
+      scan(A[i][j]);
+      A[i][j] += A[i - 1][j] + A[i][j - 1] - A[i - 1][j - 1];
     }
+  }
 
-    for (int i = 0; i <= K; i++)
-        for (int j = 0; j <= N; j++)
-            dp[i][j] = 1 << 30;
-    dp[0][0] = 0;
+  for (int i = 0; i <= K; i++)
+    for (int j = 0; j <= N; j++)
+      dp[i][j] = 1 << 30;
+  dp[0][0] = 0;
 
-    for (int i = 1; i <= K; i++)
-        compute(i, 1, N, 1, N);
+  for (int i = 1; i <= K; i++)
+    compute(i, 1, N, 1, N);
 
-    printf("%d\n", dp[K][N] / 2);
-    return 0;
+  printf("%d\n", dp[K][N] / 2);
+  return 0;
 }

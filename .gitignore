@@ -1,3 +1,10 @@
+# Ignore all no extension files except for LICENSE
+*
+!/**/
+!*.*
+!LICENSE-MIT
+!LICENSE-APACHE
+
 # Ignore latex auxiliary files
 *.aux
 *.log

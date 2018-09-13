@@ -1,6 +1,7 @@
-# ACM-Notebook
+# acm-notebook
 
 ## Contents
+
 Algorithms
  - Mo.cpp
  - Dynamic Programming
@@ -52,13 +53,22 @@ String
  - Suffix_Tree.cpp
 
 ## Compilation
+
  - Add the files into `content.txt`.
  - Compile using `compile.py`
  - Convert LaTeX to pdf
  
 ## Compilation Flags
+
 | Flag        | Explanation                 | Default     |
 |-------------|-----------------------------|-------------|
 | -i, -input  | read latex layout from FILE | content.txt |
 | -o, -output | read latex output to FILE   | content.tex |
 | -c, -code   | retrieves code from FOLDER  | ../code     |
+
+## License
+
+`acm-notebook` is dual-licensed under the terms of either the MIT license or the Apache License
+(Version 2.0).
+
+See [LICENSE-APACHE](LICENSE-APACHE) and [LICENSE-MIT](LICENSE-MIT) for more details.

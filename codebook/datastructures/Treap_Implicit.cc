@@ -11,27 +11,28 @@ struct Treap {
   struct Node {
     int val, p, sz;
     Node *left, *right;
-    Node (int val): val(val), p(randomPriority()), sz(1), left(nullptr), right(nullptr) {}
+    Node(int val) : val(val), p(randomPriority()), sz(1), left(nullptr), right(nullptr) {}
   };
 
-  static int randomPriority () {
+  static int randomPriority() {
     return rand() * 65536 + rand();
   }
 
-  static int getSize (Node* u) {
+  static int getSize(Node *u) {
     return u == nullptr ? 0 : u->sz;
   }
 
-  static void update (Node* u) {
-    if (u) u->sz = 1 + getSize(u->left) + getSize(u->right);
+  static void update(Node *u) {
+    if (u)
+      u->sz = 1 + getSize(u->left) + getSize(u->right);
   }
 
-  Node* root;
+  Node *root;
 
-  Treap (): root(nullptr) {}
+  Treap() : root(nullptr) {}
 
   // precondition: all values of u are smaller than all values of v
-  static Node* join (Node* u, Node* v) {
+  static Node *join(Node *u, Node *v) {
     if (u == nullptr)
       return v;
     if (v == nullptr)
@@ -46,7 +47,7 @@ struct Treap {
     return v;
   }
 
-  static pair<Node*, Node*> split (Node* u, int k) {
+  static pair<Node *, Node *> split(Node *u, int k) {
     if (u == nullptr)
       return make_pair(nullptr, nullptr);
     if (getSize(u->left) + 1 > k) {
@@ -66,7 +67,7 @@ struct Treap {
     }
   }
 
-  void modify (int index, int val) {
+  void modify(int index, int val) {
     Node *curr = root;
     while (curr != nullptr) {
       if (getSize(curr->left) + 1 < index)
@@ -80,7 +81,7 @@ struct Treap {
     }
   }
 
-  int get (int index) {
+  int get(int index) {
     Node *curr = root;
     while (curr != nullptr) {
       if (getSize(curr->left) + 1 < index)
@@ -93,16 +94,16 @@ struct Treap {
     return -1;
   }
 
-  void push_back (int val) {
+  void push_back(int val) {
     root = join(root, new Node(val));
   }
 
-  void insert (int index, int val) {
+  void insert(int index, int val) {
     auto res = split(root, index);
     root = join(res.first, join(new Node(val), res.second));
   }
 
-  void remove (int index) {
+  void remove(int index) {
     auto nodes = split(root, index);
     root = join(nodes.first->left, join(nodes.first->right, nodes.second));
   }

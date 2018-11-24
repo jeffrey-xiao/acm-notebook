@@ -11,17 +11,17 @@ struct LCA {
   vector<int> depth;
   vector<vector<int>> pa;
   vector<vector<int>> adj;
-  LCA (int N): N(N), LN(ceil(log(N) / log(2) + 1)), depth(N), pa(N, vector<int>(LN)), adj(N) {
+  LCA(int N) : N(N), LN(ceil(log(N) / log(2) + 1)), depth(N), pa(N, vector<int>(LN)), adj(N) {
     for (auto &x : pa)
       fill(x.begin(), x.end(), -1);
   }
 
-  void addEdge (int u, int v) {
+  void addEdge(int u, int v) {
     adj[u].push_back(v);
     adj[v].push_back(u);
   }
 
-  void dfs (int u, int d, int prev) {
+  void dfs(int u, int d, int prev) {
     depth[u] = d;
     pa[u][0] = prev;
     for (int v : adj[u])
@@ -29,15 +29,14 @@ struct LCA {
         dfs(v, d + 1, u);
   }
 
-  void precompute () {
+  void precompute() {
     for (int i = 1; i < LN; i++)
       for (int j = 0; j < N; j++)
         if (pa[j][i - 1] != -1)
           pa[j][i] = pa[pa[j][i - 1]][i - 1];
-
   }
 
-  int getLca (int u, int v) {
+  int getLca(int u, int v) {
     if (depth[u] < depth[v])
       swap(u, v);
     for (int k = LN - 1; k >= 0; k--)

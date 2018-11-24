@@ -12,30 +12,31 @@ using namespace std;
 struct Node {
   int cnt;
   Node *left, *right;
-  Node (int cnt): cnt(cnt) {}
-  Node (int cnt, Node *left, Node *right): cnt(cnt), left(left), right(right) {}
+  Node(int cnt) : cnt(cnt) {}
+  Node(int cnt, Node *left, Node *right) : cnt(cnt), left(left), right(right) {}
 };
 
 struct Tree {
   int N;
-  vector<Node*> val;
-  Tree () {}
-  Tree (int N): N(N), val(N + 1) {
+  vector<Node *> val;
+  Tree() {}
+  Tree(int N) : N(N), val(N + 1) {
     val[0] = new Node(0);
     val[0]->left = val[0]->right = val[0];
   }
 
-  Node* update (Node* prev, int l, int r, int val) {
+  Node *update(Node *prev, int l, int r, int val) {
     if (l <= val && val <= r) {
       if (l == r)
         return new Node(prev->cnt + 1);
       int mid = (l + r) >> 1;
-      return new Node(prev->cnt + 1, update(prev->left, l, mid, val), update(prev->right, mid + 1, r, val));
+      return new Node(
+          prev->cnt + 1, update(prev->left, l, mid, val), update(prev->right, mid + 1, r, val));
     }
     return prev;
   }
 
-  int query (Node* lo, Node* hi, int l, int r, int val) {
+  int query(Node *lo, Node *hi, int l, int r, int val) {
     if (l == r)
       return l;
     int mid = (l + r) >> 1;
@@ -53,7 +54,7 @@ int toVal[SIZE], a[SIZE];
 unordered_map<int, int> toIndex;
 Tree t(SIZE);
 
-int main () {
+int main() {
   scanf("%d%d", &N, &Q);
 
   for (int i = 1; i <= N; i++) {
@@ -75,4 +76,3 @@ int main () {
     printf("%d\n", toVal[t.query(t.val[l - 1], t.val[r], 1, cnt, k)]);
   }
 }
-

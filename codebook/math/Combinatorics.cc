@@ -2,7 +2,7 @@
 
 typedef long long ll;
 
-ll modpow (ll base, ll pow, ll mod) {
+ll modpow(ll base, ll pow, ll mod) {
   if (pow == 0)
     return 1L;
   if (pow == 1)
@@ -12,7 +12,7 @@ ll modpow (ll base, ll pow, ll mod) {
   return modpow(base * base % mod, pow / 2, mod);
 }
 
-ll factorial (ll n, ll m) {
+ll factorial(ll n, ll m) {
   ll ret = 1;
   for (int i = 2; i <= n; i++)
     ret = (ret * i) % m;
@@ -20,17 +20,17 @@ ll factorial (ll n, ll m) {
 }
 
 // precondition: p is prime
-ll divMod (ll i, ll j, ll p) {
+ll divMod(ll i, ll j, ll p) {
   return i * modpow(j, p - 2, p) % p;
 }
 
 // precondition: p is prime; O(log P) if you precompute factorials
-ll fastChoose (ll n, ll k, ll p) {
+ll fastChoose(ll n, ll k, ll p) {
   return divMod(divMod(factorial(n, p), factorial(k, p), p), factorial(n - k, p), p);
 }
 
 // number of partitions of n
-ll partitions (ll n, ll m) {
+ll partitions(ll n, ll m) {
   ll dp[n + 1];
   memset(dp, 0, sizeof dp);
   dp[0] = 1;
@@ -40,7 +40,7 @@ ll partitions (ll n, ll m) {
   return dp[n] % m;
 }
 
-ll stirling1 (int n, int k, long m) {
+ll stirling1(int n, int k, long m) {
   ll dp[n + 1][k + 1];
   memset(dp, 0, sizeof dp);
   dp[0][0] = 1;
@@ -52,7 +52,7 @@ ll stirling1 (int n, int k, long m) {
   return dp[n][k];
 }
 
-ll stirling2 (int n, int k, ll m) {
+ll stirling2(int n, int k, ll m) {
   ll dp[n + 1][k + 1];
   memset(dp, 0, sizeof dp);
   dp[0][0] = 1;
@@ -64,7 +64,7 @@ ll stirling2 (int n, int k, ll m) {
   return dp[n][k];
 }
 
-ll eulerian1 (int n, int k, ll m) {
+ll eulerian1(int n, int k, ll m) {
   if (k > n - 1 - k)
     k = n - 1 - k;
   ll dp[n + 1][k + 1];
@@ -79,7 +79,7 @@ ll eulerian1 (int n, int k, ll m) {
   return dp[n][k] % m;
 }
 
-ll eulerian2 (int n, int k, ll m) {
+ll eulerian2(int n, int k, ll m) {
   ll dp[n + 1][k + 1];
   memset(dp, 0, sizeof dp);
   for (int i = 1; i <= n; i++)
@@ -95,6 +95,6 @@ ll eulerian2 (int n, int k, ll m) {
 }
 
 // precondition: p is prime
-ll catalan (int n, ll p) {
+ll catalan(int n, ll p) {
   return fastChoose(2 * n, n, p) * modpow(n + 1, p - 2, p) % p;
 }

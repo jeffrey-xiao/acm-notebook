@@ -10,22 +10,22 @@ struct Treap {
   struct Node {
     int val, p;
     Node *left, *right;
-    Node (int val): val(val), p(randomPriority()) {
+    Node(int val) : val(val), p(randomPriority()) {
       left = nullptr;
       right = nullptr;
     }
   };
 
-  static int randomPriority () {
+  static int randomPriority() {
     return rand() * 65536 + rand();
   }
 
-  Node* root;
+  Node *root;
 
-  Treap (): root(nullptr) {}
+  Treap() : root(nullptr) {}
 
   // precondition: all values of u are smaller than all values of v
-  static Node* join (Node* u, Node* v) {
+  static Node *join(Node *u, Node *v) {
     if (u == nullptr)
       return v;
     if (v == nullptr)
@@ -38,7 +38,7 @@ struct Treap {
     return v;
   }
 
-  static pair<Node*, Node*> split (Node* u, int k) {
+  static pair<Node *, Node *> split(Node *u, int k) {
     if (u == nullptr)
       return make_pair(nullptr, nullptr);
     if (u->val < k) {
@@ -55,7 +55,7 @@ struct Treap {
       return make_pair(u->left, u->right);
     }
   }
-  bool contains (int val) {
+  bool contains(int val) {
     Node *curr = root;
     while (curr != nullptr) {
       if (curr->val < val)
@@ -68,13 +68,13 @@ struct Treap {
     return false;
   }
 
-  void insert (int val) {
+  void insert(int val) {
     if (contains(val))
       return;
     auto nodes = split(root, val);
     root = join(nodes.first, join(new Node(val), nodes.second));
   }
-  void remove (int val) {
+  void remove(int val) {
     if (root == nullptr)
       return;
     auto nodes = split(root, val);

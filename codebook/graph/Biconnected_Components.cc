@@ -17,14 +17,14 @@ struct BiconnectedComponents {
   vector<int> lo, disc;
   vector<bool> vis, cutVertex;
 
-  BiconnectedComponents (int N): N(N), adj(N), lo(N), disc(N), vis(N), cutVertex(N) {}
+  BiconnectedComponents(int N) : N(N), adj(N), lo(N), disc(N), vis(N), cutVertex(N) {}
 
-  void addEdge (int u, int v) {
+  void addEdge(int u, int v) {
     adj[u].push_back(v);
     adj[v].push_back(u);
   }
 
-  void dfs (int u, int prev) {
+  void dfs(int u, int prev) {
     disc[u] = lo[u] = cnt++;
     vis[u] = true;
     int children = 0;
@@ -53,7 +53,7 @@ struct BiconnectedComponents {
     }
   }
 
-  void compute () {
+  void compute() {
     for (int i = 0; i < N; i++)
       if (!vis[i])
         dfs(i, -1);

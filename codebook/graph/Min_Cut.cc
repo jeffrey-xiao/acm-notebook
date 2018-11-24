@@ -11,14 +11,14 @@ struct MinCut {
   vector<vector<int>> adj;
   vector<int> weight;
   vector<bool> inContraction, used;
-  MinCut (int N): N(N), adj(N, vector<int>(N)), weight(N, 0), inContraction(N, 0), used(N, 0) {}
+  MinCut(int N) : N(N), adj(N, vector<int>(N)), weight(N, 0), inContraction(N, 0), used(N, 0) {}
 
-  void addEdge (int u, int v, int c) {
+  void addEdge(int u, int v, int c) {
     adj[u][v] = c;
     adj[v][u] = c;
   }
 
-  int getMinCut () {
+  int getMinCut() {
     int minCut = 1 << 30;
     for (int v = N - 1; v >= 0; v--) {
       for (int i = 1; i < N; i++) {

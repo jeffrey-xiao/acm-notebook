@@ -14,25 +14,25 @@ typedef long long ll;
 struct RabinKarp {
   ll pow, patternHash;
   string pattern;
-  RabinKarp (string pattern): pattern(pattern) {
+  RabinKarp(string pattern) : pattern(pattern) {
     initialize();
   }
 
-  ll getHash (string s, int len) {
+  ll getHash(string s, int len) {
     ll ret = 0;
     for (int i = 0; i < len; i++)
       ret = (R * ret + s[i]) % MOD;
     return ret;
   }
 
-  void initialize () {
+  void initialize() {
     patternHash = getHash(pattern, pattern.size());
     pow = 1;
     for (int i = 0; i < (int)pattern.size() - 1; i++)
       pow = (pow * R) % MOD;
   }
 
-  int search (string text) {
+  int search(string text) {
     if (pattern.size() > text.size())
       return -1;
     ll currHash = getHash(text, pattern.size());

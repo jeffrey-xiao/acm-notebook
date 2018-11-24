@@ -15,13 +15,13 @@ struct Node {
   Node *child[RADIX];
   Node *suffix;
 
-  Node (int s, int e): s(s), e(e) {
+  Node(int s, int e) : s(s), e(e) {
     for (int i = 0; i < RADIX; i++)
       child[i] = nullptr;
     suffix = nullptr;
   }
 
-  int getLength (int currentPos) {
+  int getLength(int currentPos) {
     return min(currentPos + 1, e) - s;
   }
 };
@@ -31,11 +31,11 @@ struct SuffixTree {
   bool firstNodeCreated;
   Node *root, *activeNode, *lastNodeCreated;
 
-  SuffixTree (string input): input(input) {
+  SuffixTree(string input) : input(input) {
     initialize();
   }
 
-  void initialize () {
+  void initialize() {
     len = input.size();
     root = new Node(0, 0);
     activeEdge = 0;
@@ -47,19 +47,19 @@ struct SuffixTree {
     firstNodeCreated = false;
   }
 
-  void compute () {
+  void compute() {
     for (currentPos = 0; currentPos < len; currentPos++)
       addSuffix();
   }
 
-  void addSuffixLink (Node* curr) {
+  void addSuffixLink(Node *curr) {
     if (!firstNodeCreated)
       lastNodeCreated->suffix = curr;
     firstNodeCreated = false;
     lastNodeCreated = curr;
   }
 
-  void addSuffix () {
+  void addSuffix() {
     remainder++;
     firstNodeCreated = true;
     while (remainder > 0) {
@@ -77,15 +77,16 @@ struct SuffixTree {
           continue;
         }
 
-        if (input[activeNode->child[(int)input[activeEdge]]->s + activeLength] == input[currentPos]) {
+        if (input[activeNode->child[(int)input[activeEdge]]->s + activeLength] ==
+            input[currentPos]) {
           activeLength++;
           addSuffixLink(activeNode);
           break;
         } else {
-          Node* old = activeNode->child[(int)input[activeEdge]];
-          Node* split = new Node(old->s, old->s + activeLength);
+          Node *old = activeNode->child[(int)input[activeEdge]];
+          Node *split = new Node(old->s, old->s + activeLength);
           activeNode->child[(int)input[activeEdge]] = split;
-          Node* leaf = new Node(currentPos, END);
+          Node *leaf = new Node(currentPos, END);
           split->child[(int)input[currentPos]] = leaf;
           old->s += activeLength;
           split->child[(int)input[old->s]] = old;

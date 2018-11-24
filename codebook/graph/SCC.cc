@@ -13,13 +13,13 @@ struct SCC {
   vector<vector<int>> adj;
   stack<int> s;
 
-  SCC (int N): N(N), disc(N), lo(N), id(N), inStack(N), adj(N) {}
+  SCC(int N) : N(N), disc(N), lo(N), id(N), inStack(N), adj(N) {}
 
-  void addEdge (int u, int v) {
+  void addEdge(int u, int v) {
     adj[u].push_back(v);
   }
 
-  void dfs (int i) {
+  void dfs(int i) {
     disc[i] = lo[i] = ++cnt;
     inStack[i] = true;
     s.push(i);
@@ -43,7 +43,7 @@ struct SCC {
     }
   }
 
-  void compute () {
+  void compute() {
     for (int i = 0; i < N; i++)
       if (disc[i] == 0)
         dfs(i);

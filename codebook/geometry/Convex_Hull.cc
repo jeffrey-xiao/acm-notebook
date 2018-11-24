@@ -8,17 +8,17 @@ using namespace std;
 
 struct Point {
   int x, y;
-  Point (int x, int y): x(x), y(y) {}
-  bool operator < (const Point& p) const {
+  Point(int x, int y) : x(x), y(y) {}
+  bool operator<(const Point &p) const {
     return make_pair(x, y) < make_pair(p.x, p.y);
   }
 };
 
-int ccw (Point p1, Point p2, Point p3) {
+int ccw(Point p1, Point p2, Point p3) {
   return (p2.x - p1.x) * (p3.y - p1.y) - (p2.y - p1.y) * (p3.x - p1.x);
 }
 
-vector<Point> convexHull (vector<Point> pts) {
+vector<Point> convexHull(vector<Point> pts) {
   vector<Point> u, l;
   sort(pts.begin(), pts.end());
 

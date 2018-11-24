@@ -15,27 +15,26 @@ int N, M, sz, res, cnt[MAX_VALUE], a[SIZE], ans[QUERIES];
 
 struct Query {
   int l, r, index;
-  Query () {}
-  Query (int l, int r, int index): l(l), r(r), index(index) {}
-  bool operator < (const Query& q) const {
+  Query() {}
+  Query(int l, int r, int index) : l(l), r(r), index(index) {}
+  bool operator<(const Query &q) const {
     if ((l - 1) / sz != (q.l - 1) / sz)
       return (l - 1) / sz > (q.l - 1) / sz;
     return r < q.r;
   }
 } q[QUERIES];
 
-void update (int i) {
+void update(int i) {
   if (!cnt[i]++)
     res++;
 }
 
-void remove (int i) {
+void remove(int i) {
   if (!--cnt[i])
     res--;
 }
 
-
-int main () {
+int main() {
   scanf("%d", &N);
   sz = (int)sqrt(N);
 

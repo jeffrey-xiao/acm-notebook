@@ -8,9 +8,9 @@ using namespace std;
 
 // input: (x, y) coordinates
 // output: M by 3 matrix containing tuple of indices corresponding to vertices
-vector<vector<int>> triangulate (vector<int> x, vector<int> y) {
+vector<vector<int>> triangulate(vector<int> x, vector<int> y) {
   int N = x.size();
-  vector<int> z (N);
+  vector<int> z(N);
   vector<vector<int>> ret;
 
   for (int i = 0; i < N; i++)
@@ -21,12 +21,12 @@ vector<vector<int>> triangulate (vector<int> x, vector<int> y) {
       for (int k = i + 1; k < N; k++) {
         if (j == k)
           continue;
-        int xn = (y[j]-y[i])*(z[k]-z[i])-(y[k]-y[i])*(z[j]-z[i]);
-        int yn = (x[k]-x[i])*(z[j]-z[i])-(x[j]-x[i])*(z[k]-z[i]);
-        int zn = (x[j]-x[i])*(y[k]-y[i])-(x[k]-x[i])*(y[j]-y[i]);
+        int xn = (y[j] - y[i]) * (z[k] - z[i]) - (y[k] - y[i]) * (z[j] - z[i]);
+        int yn = (x[k] - x[i]) * (z[j] - z[i]) - (x[j] - x[i]) * (z[k] - z[i]);
+        int zn = (x[j] - x[i]) * (y[k] - y[i]) - (x[k] - x[i]) * (y[j] - y[i]);
         bool flag = zn < 0;
         for (int m = 0; flag && m < N; m++)
-          flag &= ((x[m]-x[i])*xn+(y[m]-y[i])*yn+(z[m]-z[i])*zn <= 0);
+          flag &= ((x[m] - x[i]) * xn + (y[m] - y[i]) * yn + (z[m] - z[i]) * zn <= 0);
         if (flag)
           ret.push_back({i, j, k});
       }

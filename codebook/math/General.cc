@@ -4,8 +4,8 @@ using namespace std;
 
 typedef long long ll;
 
-vector<int> getPrimesEratosthenes (int N) {
-  vector<bool> prime (N + 1);
+vector<int> getPrimesEratosthenes(int N) {
+  vector<bool> prime(N + 1);
   vector<int> ret;
 
   fill(prime.begin(), prime.end(), true);
@@ -22,8 +22,8 @@ vector<int> getPrimesEratosthenes (int N) {
   return ret;
 }
 
-vector<int> eulerTotient (int N) {
-  vector<int> ret (N + 1);
+vector<int> eulerTotient(int N) {
+  vector<int> ret(N + 1);
   for (int i = 1; i <= N; i++)
     ret[i] = i;
   for (int i = 2; i <= N; i++)
@@ -33,11 +33,11 @@ vector<int> eulerTotient (int N) {
   return ret;
 }
 
-ll gcd (ll a, ll b) {
+ll gcd(ll a, ll b) {
   return b == 0 ? a : gcd(b, a % b);
 }
 
-ll multmod (ll a, ll b, ll m) {
+ll multmod(ll a, ll b, ll m) {
   ll x = 0, y = a % m;
   for (; b > 0; b >>= 1) {
     if ((b & 1) == 1)
@@ -47,11 +47,11 @@ ll multmod (ll a, ll b, ll m) {
   return x % m;
 }
 
-ll randLong () {
+ll randLong() {
   return ((rand() * 1LL) << 47) | ((rand() * 1LL) << 32) | ((rand() * 1LL) << 16) | rand();
 }
 
-ll brent (ll n) {
+ll brent(ll n) {
   if (n % 2 == 0)
     return 2;
   ll y = randLong() % (n - 1) + 1;

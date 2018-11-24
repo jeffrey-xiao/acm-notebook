@@ -9,17 +9,17 @@ using namespace std;
 struct Suffix {
   int index;
   pair<int, int> rank;
-  Suffix () {}
-  Suffix (int index, int rank1, int rank2): index(index), rank{rank1, rank2} {}
-  bool operator < (const Suffix& s) const {
+  Suffix() {}
+  Suffix(int index, int rank1, int rank2) : index(index), rank{rank1, rank2} {}
+  bool operator<(const Suffix &s) const {
     return rank < s.rank;
   }
-  bool operator == (const Suffix& s) const {
+  bool operator==(const Suffix &s) const {
     return rank == s.rank;
   }
 };
 
-vector<int> buildSuffixArray (string s) {
+vector<int> buildSuffixArray(string s) {
   int N = (int)s.size();
   vector<Suffix> suff(N);
   vector<int> ind(N), ret(N);

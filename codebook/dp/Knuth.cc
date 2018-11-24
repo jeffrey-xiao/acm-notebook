@@ -28,7 +28,7 @@ int mid[SIZE][SIZE];
 int pos[SIZE];
 int N, M;
 
-int main () {
+int main() {
   while (scanf("%d%d", &N, &M) != EOF) {
     for (int i = 1; i <= M; i++)
       scanf("%d", &pos[i]);

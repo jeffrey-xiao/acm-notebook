@@ -2,20 +2,20 @@
 
 using namespace std;
 
-int mod (int a, int b) {
+int mod(int a, int b) {
   return ((a % b) + b) % b;
 }
 
-int gcd (int a, int b) {
+int gcd(int a, int b) {
   return b == 0 ? a : (gcd(b, a % b));
 }
 
-int lcm (int a, int b) {
+int lcm(int a, int b) {
   return a / gcd(a, b) * b;
 }
 
 // returns (d, x, y) such that d = gcd(a, b) and d = ax * by
-vector<int> euclid (int a, int b) {
+vector<int> euclid(int a, int b) {
   int x = 1, y = 0, x1 = 0, y1 = 1, t;
   while (b != 0) {
     int q = a / b;
@@ -30,12 +30,13 @@ vector<int> euclid (int a, int b) {
     a = t;
   }
   vector<int> ret = {a, x, y};
-  if (a <= 0) ret = {-a, -x, -y};
+  if (a <= 0)
+    ret = {-a, -x, -y};
   return ret;
 }
 
 // finds all solutions to ax = b mod n
-vector<int> linearEquationSolver (int a, int b, int n) {
+vector<int> linearEquationSolver(int a, int b, int n) {
   vector<int> ret;
   vector<int> res = euclid(a, b);
   int d = res[0], x = res[1];
@@ -50,7 +51,7 @@ vector<int> linearEquationSolver (int a, int b, int n) {
 }
 
 // computes x and y such that ax + by = c; on failure, x = y = -1 << 30
-void linearDiophantine (int a, int b, int c, int &x, int &y) {
+void linearDiophantine(int a, int b, int c, int &x, int &y) {
   int d = gcd(a, b);
 
   if (c % d != 0) {
@@ -66,13 +67,13 @@ void linearDiophantine (int a, int b, int c, int &x, int &y) {
 }
 
 // precondition: m > 0 && gcd(a, m) = 1
-int modInverse (int a, int m) {
+int modInverse(int a, int m) {
   a = mod(a, m);
   return a == 0 ? 0 : mod((1 - modInverse(m % a, a) * m) / a, m);
 }
 
 // precondition: p is prime
-vector<int> generateInverse (int p) {
+vector<int> generateInverse(int p) {
   vector<int> res(p);
   res[1] = 1;
   for (int i = 2; i < p; ++i)
@@ -81,7 +82,7 @@ vector<int> generateInverse (int p) {
 }
 
 // solve x = a[i] (mod p[i]), where gcd(p[i], p[j]) == 1
-int simpleRestore (vector<int> a, vector<int> p) {
+int simpleRestore(vector<int> a, vector<int> p) {
   int res = a[0];
   int m = 1;
   for (int i = 1; i < (int)a.size(); i++) {
@@ -92,12 +93,12 @@ int simpleRestore (vector<int> a, vector<int> p) {
   return res;
 }
 
-int garnerRestore (vector<int> a, vector<int> p) {
+int garnerRestore(vector<int> a, vector<int> p) {
   vector<int> x(a.size());
   for (int i = 0; i < (int)x.size(); ++i) {
     x[i] = a[i];
     for (int j = 0; j < i; ++j) {
-      x[i] = (int) modInverse(p[j], p[i]) * (x[i] - x[j]);
+      x[i] = (int)modInverse(p[j], p[i]) * (x[i] - x[j]);
       x[i] = (x[i] % p[i] + p[i]) % p[i];
     }
   }

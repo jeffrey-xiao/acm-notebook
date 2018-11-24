@@ -12,14 +12,14 @@ typedef complex<double> C;
 typedef long long LL;
 vector<C> roots;
 
-vector<C> getRoots (int N) {
+vector<C> getRoots(int N) {
   vector<C> ret;
   for (int i = 0; i < N; i++)
     ret.push_back(polar(1.0, 2 * i * M_PI / N));
   return ret;
 }
 
-template<class T> void FFT (T *in, C *out, int sz, int step = 1) {
+template <class T> void FFT(T *in, C *out, int sz, int step = 1) {
   if (sz == 1) {
     *out = *in;
   } else {
@@ -33,7 +33,7 @@ template<class T> void FFT (T *in, C *out, int sz, int step = 1) {
   }
 }
 
-vector<double> multiplyPolynomial (vector<double> a, vector<double> b) {
+vector<double> multiplyPolynomial(vector<double> a, vector<double> b) {
   int N = (int)(a.size() + b.size() - 1);
   while (N & (N - 1))
     N++;
@@ -58,7 +58,7 @@ vector<double> multiplyPolynomial (vector<double> a, vector<double> b) {
   return ret;
 }
 
-vector<int> multiply (vector<int> a, vector<int> b) {
+vector<int> multiply(vector<int> a, vector<int> b) {
   int N = (int)(a.size() + b.size());
   while (N & (N - 1))
     N++;

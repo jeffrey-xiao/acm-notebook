@@ -16,15 +16,14 @@
 
 #define MAX_N 4001
 #define MAX_K 801
-#define scan(x) do{while((x=getchar())<'0'); for(x-='0'; '0'<=(_=getchar()); x=(x<<3)+(x<<1)+_-'0');}while(0)
-char _;
+
 using namespace std;
 
 int N, K;
 int A[MAX_N][MAX_N];
 int dp[MAX_K][MAX_N];
 
-void compute (int g, int i, int j, int l, int r) {
+void compute(int g, int i, int j, int l, int r) {
   if (i > j)
     return;
   int mid = (i + j) >> 1;
@@ -40,13 +39,12 @@ void compute (int g, int i, int j, int l, int r) {
   compute(g, mid + 1, j, bestIndex, r);
 }
 
-int main () {
-  scan(N);
-  scan(K);
+int main() {
+  scanf("%d%d", &N, &K);
 
   for (int i = 1; i <= N; i++) {
     for (int j = 1; j <= N; j++) {
-      scan(A[i][j]);
+      scanf("%d", &A[i][j]);
       A[i][j] += A[i - 1][j] + A[i][j - 1] - A[i - 1][j - 1];
     }
   }

@@ -15,15 +15,15 @@ struct Euler {
   int N;
   vector<vector<Edge>> adj;
   vector<int> used;
-  Euler (int N): N(N), adj(N), used(N) {}
+  Euler(int N) : N(N), adj(N), used(N) {}
 
-  void addEdge (int u, int v) {
+  void addEdge(int u, int v) {
     adj[u].push_back({v, (int)adj[v].size(), 0});
     adj[v].push_back({u, (int)adj[u].size() - 1, 0});
   }
 
   // precondition: all vertices are connected
-  int getEuler () {
+  int getEuler() {
     int odd = 0;
     for (int i = 0; i < N; i++)
       if ((int)adj[i].size() & 1)
@@ -33,15 +33,15 @@ struct Euler {
     return odd == 0 ? 0 : 1;
   }
 
-  bool isEulerianPath () {
+  bool isEulerianPath() {
     return getEuler() != -1;
   }
 
-  bool isEulerianCycle () {
+  bool isEulerianCycle() {
     return getEuler() == 0;
   }
 
-  void printEulerianPath () {
+  void printEulerianPath() {
     if (!isEulerianPath()) {
       printf("No Eulerian Path Exists.");
       return;

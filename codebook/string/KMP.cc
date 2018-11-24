@@ -9,11 +9,11 @@ using namespace std;
 struct KMP {
   string pattern;
   vector<int> lcp;
-  KMP (string pattern): pattern(pattern), lcp(pattern.size()) {
+  KMP(string pattern) : pattern(pattern), lcp(pattern.size()) {
     buildLcp();
   }
 
-  void buildLcp () {
+  void buildLcp() {
     for (int i = 1; i < (int)pattern.size(); i++) {
       int j = lcp[i - 1];
       while (j > 0 && pattern[j] != pattern[i])
@@ -26,7 +26,7 @@ struct KMP {
       printf("%d\n", lcp[i]);
   }
 
-  int search (string text) {
+  int search(string text) {
     int j = 0;
     for (int i = 0; i < (int)text.size(); i++) {
       while (j > 0 && text[i] != pattern[j])

@@ -12,9 +12,10 @@ struct ConvexHullTrick {
   vector<LL> M, B;
   int ptr = 0;
 
-  void addLine (LL m, LL b) {
+  void addLine(LL m, LL b) {
     int len = M.size();
-    while (len > 1 && (B[len - 2] - B[len - 1]) * (m - M[len - 1]) >= (B[len - 1] - b) * (M[len - 1] - M[len - 2]))
+    while (len > 1 && (B[len - 2] - B[len - 1]) * (m - M[len - 1]) >=
+                          (B[len - 1] - b) * (M[len - 1] - M[len - 2]))
       len--;
     M.resize(len);
     B.resize(len);
@@ -22,7 +23,7 @@ struct ConvexHullTrick {
     B.push_back(b);
   }
 
-  LL getMax (LL x) {
+  LL getMax(LL x) {
     if (ptr >= (int)M.size())
       ptr = (int)M.size() - 1;
     while (ptr < (int)M.size() - 1 && M[ptr + 1] * x + B[ptr + 1] >= M[ptr] * x + B[ptr])

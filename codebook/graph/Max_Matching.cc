@@ -11,14 +11,14 @@ struct MaxMatching {
   vector<vector<int>> adj;
   vector<bool> mark, used;
   vector<int> match, par, id;
-  MaxMatching (int N): N(N), adj(N), mark(N), used(N), match(N), par(N), id(N) {}
+  MaxMatching(int N) : N(N), adj(N), mark(N), used(N), match(N), par(N), id(N) {}
 
-  void addEdge (int u, int v) {
+  void addEdge(int u, int v) {
     adj[u].push_back(v);
     adj[v].push_back(u);
   }
 
-  void markPath (vector<bool>& blossom, int i, int b, int j) {
+  void markPath(vector<bool> &blossom, int i, int b, int j) {
     for (; id[i] != b; i = par[match[i]]) {
       blossom[id[i]] = blossom[id[match[i]]] = true;
       par[i] = j;
@@ -26,7 +26,7 @@ struct MaxMatching {
     }
   }
 
-  int lca (int i, int j) {
+  int lca(int i, int j) {
     vector<bool> v(N);
     while (true) {
       i = id[i];
@@ -43,7 +43,7 @@ struct MaxMatching {
     }
   }
 
-  int getAugmentingPath (int src) {
+  int getAugmentingPath(int src) {
     fill(par.begin(), par.end(), -1);
     fill(used.begin(), used.end(), 0);
     for (int i = 0; i < N; i++)
@@ -84,14 +84,14 @@ struct MaxMatching {
     }
   }
 
-  int getMaxMatching () {
+  int getMaxMatching() {
     fill(match.begin(), match.end(), -1);
     fill(par.begin(), par.end(), 0);
     fill(id.begin(), id.end(), 0);
     fill(used.begin(), used.end(), 0);
 
     for (int i = 0; i < N; i++) {
-      if (match[i] == -1){
+      if (match[i] == -1) {
         int v = getAugmentingPath(i);
         while (v != -1) {
           int pv = par[v];

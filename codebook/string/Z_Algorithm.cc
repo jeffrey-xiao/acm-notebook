@@ -10,7 +10,7 @@
 
 using namespace std;
 
-vector<int> compute (string s) {
+vector<int> compute(string s) {
   vector<int> z(s.size());
   int l = 0, r = 0;
   for (int i = 1; i < (int)s.size(); i++) {

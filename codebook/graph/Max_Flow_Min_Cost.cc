@@ -8,13 +8,14 @@ using namespace std;
 
 struct Edge {
   int orig, dest, origCost, cost, flow, last;
-  Edge (int orig, int dest, int cost, int flow, int last): orig(orig), dest(dest), origCost(cost), cost(cost), flow(flow), last(last) {}
+  Edge(int orig, int dest, int cost, int flow, int last)
+      : orig(orig), dest(dest), origCost(cost), cost(cost), flow(flow), last(last) {}
 };
 
 struct Vertex {
   int index, cost;
-  Vertex (int index, int cost): index(index), cost(cost) {}
-  bool operator < (const Vertex& v) const {
+  Vertex(int index, int cost) : index(index), cost(cost) {}
+  bool operator<(const Vertex &v) const {
     return cost < v.cost;
   }
 };
@@ -23,25 +24,26 @@ struct MaxFlowMinCost {
   int N, src, sink, cnt = 0;
   vector<Edge> e;
   vector<int> last, phi, prev, dist, index;
-  MaxFlowMinCost (int N, int src, int sink): N(N), src(src), sink(sink), last(N), phi(N), prev(N), dist(N), index(N) {
+  MaxFlowMinCost(int N, int src, int sink)
+      : N(N), src(src), sink(sink), last(N), phi(N), prev(N), dist(N), index(N) {
     fill(last.begin(), last.end(), -1);
   }
 
-  void addEdge (int u, int v, int flow, int cost) {
+  void addEdge(int u, int v, int flow, int cost) {
     e.push_back({u, v, cost, flow, last[u]});
     last[u] = (int)e.size() - 1;
     e.push_back({v, u, -cost, 0, last[v]});
     last[v] = (int)e.size() - 1;
   }
 
-  void reduceCost () {
+  void reduceCost() {
     for (int i = 0; i < (int)e.size(); i += 2) {
       e[i].cost += phi[e[i].orig] - phi[e[i].dest];
       e[i ^ 1].cost = 0;
     }
   }
 
-  void bellmanFord () {
+  void bellmanFord() {
     fill(phi.begin(), phi.end(), 1 << 25);
     phi[src] = 0;
     for (int j = 0; j < N - 1; j++)
@@ -50,7 +52,7 @@ struct MaxFlowMinCost {
           phi[e[i].dest] = min(phi[e[i].dest], phi[e[i].orig] + e[i].cost);
   }
 
-  bool dijkstra () {
+  bool dijkstra() {
     fill(dist.begin(), dist.end(), 1 << 30);
     fill(prev.begin(), prev.end(), -1);
     fill(index.begin(), index.end(), -1);
@@ -72,7 +74,7 @@ struct MaxFlowMinCost {
     return dist[sink] != 1 << 30;
   }
 
-  pair<int, int> getMaxFlowMinCost () {
+  pair<int, int> getMaxFlowMinCost() {
     int flow = 0;
     int cost = 0;
     bellmanFord();
